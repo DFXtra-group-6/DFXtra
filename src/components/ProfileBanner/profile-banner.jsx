@@ -13,7 +13,7 @@ const ProfileBanner = () => {
         <div className="social-icons">
           <i className="fa-brands fa-linkedin"></i>
           <i className="fa-brands fa-github"></i>
-          <i className="fa-brands fa-youtube"></i>
+          <i className="fa-brands fa-square-youtube"></i>
         </div>
       </div>
       <div className="user-content">
@@ -28,12 +28,15 @@ const ProfileBanner = () => {
           </div>
         </div>
         <div className="user-overview">
-          <h4>Overview</h4>
+          <h5>Overview</h5>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam,
             voluptatem, ea expedita non omnis incidunt excepturi inventore cum
             eaque magni tempore! Dicta, dignissimos. Debitis modi officia
-            voluptas repudiandae labore aliquam.
+            voluptas repudiandae labore aliquam. Lorem, ipsum dolor sit amet
+            consectetur adipisicing elit. Suscipit hic aut, sed officia, dolorum
+            sint odit ea aliquam repellendus id dolor! Est mollitia sint amet
+            quod provident, error id minus?
           </p>
         </div>
       </div>
