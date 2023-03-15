@@ -1,0 +1,40 @@
+.container {
+  display: flex;
+  justify-content: space-evenly;
+  border: 1px solid red;
+  padding: 20px;
+}
+.user-image {
+  border: 1px solid red;
+  position: relative;
+  overflow: hidden;
+  height: 175px;
+  width: 175px;
+  border-radius: 50%;
+}
+.user-image img {
+  height: auto;
+  width: 100%;
+  border-radius: 50%;
+  margin-top: -40px;
+}
+.user-content {
+  border: 1px solid green;
+  text-align: left;
+}
+
+.user-name {
+  display: flex;
+  align-items: center;
+}
+.user-pronouns {
+  font-size: 12px;
+  margin-left: 5px;
+}
+.user-titles {
+  font-size: 14px;
+}
+.user-overview {
+  border: 1px solid pink;
+  background-color: grey;
+}
