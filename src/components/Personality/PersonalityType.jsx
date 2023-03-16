@@ -16,24 +16,8 @@ function PersonalityType() {
   };
 
   return (
-    <div
-      style={{
-        maxWidth: "400px",
-        maxHeight: "250px",
-        border: "1px solid #ccc",
-        borderRadius: "5px",
-        padding: "10px",
-        overflow: "hidden",
-      }}
-    >
-      <div style={{ display: "flex", alignItems: "center" }}>
-        <img
-          src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/072/031/original/personality.png?1678974363"
-          alt="Personality"
-          style={{ marginRight: "10px", maxHeight: "50px" }}
-        />
-        <h2 style={{ margin: 0 }}>Personality Type</h2>
-      </div>
+    <div>
+      <h2>Personality Type</h2>
       {showForm ? (
         <form onSubmit={handleSubmit}>
           <label htmlFor="title">Title:</label>
@@ -58,25 +42,16 @@ function PersonalityType() {
           <button type="submit">Add</button>
         </form>
       ) : (
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            marginTop: "10px",
-            width: "300px",
-          }}
-        >
-          <div>
-            {personalityTypes.map((personalityType, index) => (
-              <div key={index}>
-                <h3>{personalityType.title}</h3>
-                <p>{personalityType.text}</p>
-              </div>
-            ))}
-            <button onClick={() => setShowForm(true)}>
-              Add Personality Type
-            </button>
-          </div>
+        <div>
+          {personalityTypes.map((personalityType, index) => (
+            <div key={index}>
+              <h3>{personalityType.title}</h3>
+              <p>{personalityType.text}</p>
+            </div>
+          ))}
+          <button onClick={() => setShowForm(true)}>
+            Add Personality Type
+          </button>
         </div>
       )}
     </div>
@@ -84,3 +59,5 @@ function PersonalityType() {
 }
 
 export default PersonalityType;
+
+//test
