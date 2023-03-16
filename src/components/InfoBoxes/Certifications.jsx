@@ -1,9 +1,10 @@
 import React from "react";
 
 const Certifications = ({ certifications }) => {
-  return (
-    <div className="col-6">
-      {certifications.map((certification) => {
+    return (
+        <div className="col-6">
+            Certifications
+            {/* {certifications.map((certification) => {
         return (
           <>
             <div className="icon col-2">
@@ -14,9 +15,9 @@ const Certifications = ({ certifications }) => {
             </div>
           </>
         );
-      })}
-    </div>
-  );
+      })} */}
+        </div>
+    );
 };
 
 export default Certifications;
