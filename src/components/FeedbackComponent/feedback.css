@@ -1,0 +1,42 @@
+.card {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
+  background-color: rgb(228, 225, 225);
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.user-image-thumbnail {
+  border: 1px solid black;
+  position: relative;
+  overflow: hidden;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+.user-image-thumbnail img {
+  height: auto;
+  width: 100%;
+  border-radius: 50%;
+}
+
+.user-name {
+  display: flex;
+  align-items: center;
+}
+
+.user-feedback p {
+  line-height: 1.1;
+  font-size: 14px;
+}
