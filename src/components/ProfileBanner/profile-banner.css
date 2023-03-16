@@ -1,10 +1,30 @@
-.container {
+body {
+  background-color: #f3f3f3;
+}
+/* This is using mixed with BOOTSTRAPS default CSS */
+.container2 {
   display: flex;
+  flex-wrap: wrap;
   border: 1px solid red;
   padding: 20px;
+  background-color: white;
+  border-radius: 10px;
 }
+/* Still need to get this to work with the main banner */
+/* .background {
+  background-image: url(../../assets/banner-background.jpg);
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  max-height: 1000px;
+  z-index: -1;
+} */
+
+/* Need to get the flag under profile-image */
+/* .image-socials {
+  border: 1px solid green;
+} */
 .user-image {
-  border: 1px solid red;
+  border: 1px solid black;
   position: relative;
   overflow: hidden;
   height: 175px;
@@ -19,7 +39,7 @@
   margin-top: -40px;
 }
 .social-icons {
-  border: 1px solid purple;
+  /* border: 1px solid purple; */
   display: flex;
   justify-content: space-evenly;
 }
@@ -30,9 +50,11 @@
   border-radius: 15px;
 }
 .user-content {
-  /* border: 1px solid green; */
+  /* display: flex; */
   text-align: left;
   margin-left: 30px;
+  max-width: 70%;
+  /* flex-wrap: wrap; */
 }
 
 .user-name {
@@ -49,8 +71,23 @@
   color: #afb2b9;
 }
 .user-overview {
-  /* border: 1px solid pink; */
+  margin-top: 20px;
   padding: 10px;
   border-radius: 10px;
   background-color: #f0f3f8;
+}
+.user-overview p {
+  line-height: 1.1;
+  font-size: 14px;
+}
+
+@media (max-width: 726px) {
+  .container2 {
+    justify-content: center;
+    padding: 10px;
+  }
+  .user-name {
+    justify-content: center;
+    margin-top: 15px;
+  }
 }
