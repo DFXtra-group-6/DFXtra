@@ -13,21 +13,21 @@ import KeyTools from "./components/InfoBoxes/KeyTools";
 import Qualifications from "./components/InfoBoxes/Qualifications";
 
 function App() {
-    return (
-        <div>
-            <NavbarComp />
-            <Greeting />
-            <ProfileBanner />
-            <PersonalityType />
-            <Certifications />
-            <DueDiligence />
-            {/* <Interests />
+  return (
+    <div>
+      <NavbarComp />
+      <Greeting />
+      <ProfileBanner />
+      <PersonalityType />
+      {/* <Certifications /> */}
+      <DueDiligence />
+      {/* <Interests />
       <KeyTools />
       <Qualifications /> */}
-            <AllExperience />
-            <FeedbackComponent />
-        </div>
-    );
+      <AllExperience />
+      <FeedbackComponent />
+    </div>
+  );
 }
 
 export default App;

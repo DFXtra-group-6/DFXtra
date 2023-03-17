@@ -2,9 +2,7 @@ import React from 'react'
 
 const Interests = ({ interests }) => {
     return (
-        <div>
-            <h4>Interests</h4>
-            {/* {interests.map(interest => {
+        <div>{interests.map(interest => {
             return (
                 <>
                     <div className='icon col-2'>
@@ -18,8 +16,7 @@ const Interests = ({ interests }) => {
             )
         })
 
-            } */}
-        </div>
+        }</div>
     )
 }
 
