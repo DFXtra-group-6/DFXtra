@@ -1,18 +1,18 @@
 import React from "react";
 
-const DueDiligence = ({ dueDilligence }) => {
-  return (
-    <div>
-      {/* Just provides true/false at the moment */}
-      {/* <img src="./certificate.svg" className="icon" />
-      <p>Disclosure {dueDilligence.disclosure}</p>
-      <p>Identity {dueDilligence.identity}</p>
-      <p>Credit {dueDilligence.credit}</p>
-      <p>Right to Work {dueDilligence.rightToWork}</p>
-      <p>Education {dueDilligence.education}</p> */}
-      TEST WITH DATA
-    </div>
-  );
+const DueDiligence = ({ dueDiligence }) => {
+    return (
+        <div>
+            <h4>Due Diligence</h4>
+            {/* Just provides true/false at the moment */}
+            {/* <img src="./certificate.svg" className="icon" />
+      <p>Disclosure {dueDiligence.disclosure}</p>
+      <p>Identity {dueDiligence.identity}</p>
+      <p>Credit {dueDiligence.credit}</p>
+      <p>Right to Work {dueDiligence.rightToWork}</p>
+      <p>Education {dueDiligence.education}</p> */}
+        </div>
+    );
 };
 
 export default DueDiligence;
