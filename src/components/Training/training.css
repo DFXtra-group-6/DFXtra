@@ -1,0 +1,58 @@
+.learn-more {
+    color:blue;
+    font-size: 0.8rem;   
+}
+
+.training-table {
+    background-color: white;
+    display:grid;   
+}
+
+.training {
+    border-bottom: 1px rgb(211, 211, 211) solid;
+    display: grid;
+    Grid-template-columns: repeat(12, 1fr);
+}
+
+.head1 {
+    display: grid;
+    grid-column: 1/4;
+}
+
+.head2 {
+    display: grid;
+    grid-column: 6/9;
+}
+
+.head3 {
+    display: grid;
+    grid-column: 11/12;
+}
+
+.training-box {
+    border: 1px rgb(211, 211, 211) solid;
+    display:grid;
+    margin-top: 10px;
+    Grid-template-columns: repeat(12, 1fr);
+}
+
+.result-style {
+    color: #03C04A;
+    background-color: #99EDC3;
+    border-radius: 15px;
+}
+
+.result {
+    display: grid;
+    grid-column: 11/12;
+}
+
+.challenge {
+    display: grid;
+    grid-column: 6/9;
+}
+
+.challengeName {
+    display: grid;
+    grid-column: 1/4;
+}
