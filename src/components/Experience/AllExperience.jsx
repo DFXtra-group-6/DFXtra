@@ -31,29 +31,8 @@ const AllExperience = () => {
     }
   };
 
-  // <<<<<<< HEAD
-  //   return (
-  //     <div className="row mr-5 col-md-8 border p-4 mt-3">
-  //       <h3>Experience</h3>
-  //       <p>View the work experience of the engineer</p>
-  //       <table className="table table-responsive">
-  //         <thead>
-  //           <tr>
-  //             <th>Employer</th>
-  //             <th></th>
-  //             <th>Position</th>
-  //             <th>Dates</th>
-  //             <th></th>
-  //           </tr>
-  //         </thead>
-  //         <tbody>{populateExpTable()}</tbody>
-  //       </table>
-  //     </div>
-  //   );
-  // };
-  // =======
   return (
-    <div className="row mx-5 col-md-8 border p-4 mt-3 experience-table">
+    <div className="row mx-2 col-md-8 border p-4 mt-3 experience-table">
       <h3>Experience</h3>
       <p>View the work experience of the engineer</p>
       <div className="exp my-3">

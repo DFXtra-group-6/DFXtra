@@ -3,7 +3,8 @@ import React from 'react'
 const KeyTools = ({ keyTools }) => {
     return (
         <div>
-            {keyTools.map(keyTool => {
+            <h4>Key Tools</h4>
+            {/* {keyTools.map(keyTool => {
                 return (
                     <>
                         <container className='col-6'>
@@ -18,7 +19,8 @@ const KeyTools = ({ keyTools }) => {
                 )
             })
 
-            }</div>
+            } */}
+        </div>
     )
 }
 

@@ -11,4 +11,8 @@
 .main-content {
   margin-left: 20px;
   padding: 30px;
+  /* background-color: red; */
+}
+.sub-main-content {
+  /* background-color: blue; */
 }

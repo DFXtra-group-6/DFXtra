@@ -6,6 +6,7 @@ import PersonalityType from "../Personality/PersonalityType";
 import FeedbackComponent from "../FeedbackComponent/feedbackComponent";
 import DueDiligence from "../InfoBoxes/DueDiligence";
 import Certifications from "../InfoBoxes/Certifications";
+import AllTraining from "../Training/AllTraining";
 import "./profile-page.css";
 
 const ProfilePage = () => {
@@ -17,11 +18,14 @@ const ProfilePage = () => {
       <div className="main-content">
         <Greeting />
         <ProfileBanner />
-        <PersonalityType />
-        <Certifications />
-        <DueDiligence />
-        <AllExperience />
-        <FeedbackComponent />
+        <div className="sub-main-content">
+          <PersonalityType />
+          <Certifications />
+          <DueDiligence />
+          <AllExperience />
+          <AllTraining />
+          <FeedbackComponent />
+        </div>
       </div>
     </div>
   );
