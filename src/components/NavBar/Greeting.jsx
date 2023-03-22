@@ -1,8 +1,8 @@
 // import PropTypes from 'prop-types'
-
+import "./greeting.css";
 const Greeting = () => {
   return (
-    <h6>
+    <h6 className="text-bg-light">
       Good Afternoon, <strong> John 👋</strong>
     </h6>
   );

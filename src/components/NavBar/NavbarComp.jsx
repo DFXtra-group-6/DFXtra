@@ -1,8 +1,9 @@
 import logo from "../../assets/df.png";
+import "./greeting.css";
 const NavbarComp = () => {
   return (
     <>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <nav class="navbar flex-column navbar-expand-lg navbar-dark custom-bg">
         <img src={logo} width="30" height="30" alt="" />
 
         <button
@@ -16,8 +17,11 @@ const NavbarComp = () => {
         >
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
+        <div
+          class="collapse navbar-collapse flex-column justify-content-start"
+          id="navbarNav"
+        >
+          <ul class="navbar-nav flex-column ">
             <li class="nav-item">
               <a class="nav-link " href="#">
                 <i class="fas fa-home"></i>
