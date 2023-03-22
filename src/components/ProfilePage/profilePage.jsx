@@ -5,6 +5,7 @@ import Greeting from "../NavBar/Greeting";
 import PersonalityType from "../Personality/PersonalityType";
 import FeedbackComponent from "../FeedbackComponent/feedbackComponent";
 import DueDiligence from "../InfoBoxes/DueDiligence";
+import Certifications from "../InfoBoxes/Certifications";
 import "./profile-page.css";
 
 const ProfilePage = () => {
@@ -17,6 +18,7 @@ const ProfilePage = () => {
         <Greeting />
         <ProfileBanner />
         <PersonalityType />
+        <Certifications />
         <DueDiligence />
         <AllExperience />
         <FeedbackComponent />

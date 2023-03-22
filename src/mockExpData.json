@@ -8,6 +8,9 @@
     "position": "Software Engineer",
     "startDate": "jan-2022",
     "endDate":  "jan-2023",
+    "challengeName": "Best Practice",
+    "challenge": "Airport Challenge",
+    "result": "Pass",
     "address": {
       "street": "Kulas Light",
       "suite": "Apt. 556",
@@ -35,6 +38,9 @@
     "position": "Software Engineer",
     "startDate": "jan-2022",
     "endDate":"jan-2023",
+    "challengeName": "Best Practice",
+    "challenge": "Airport Challenge",
+    "result": "Pass",
     "address": {
       "street": "Victor Plains",
       "suite": "Suite 879",
@@ -62,6 +68,9 @@
     "position": "Software Engineer",
     "startDate": "jan-2022",
     "endDate":"jan-2023",
+    "challengeName": "Best Practice",
+    "challenge": "Airport Challenge",
+    "result": "Pass",
     "address": {
       "street": "Douglas Extension",
       "suite": "Suite 847",
