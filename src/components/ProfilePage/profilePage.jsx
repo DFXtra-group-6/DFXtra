@@ -5,17 +5,22 @@ import Greeting from "../NavBar/Greeting";
 import PersonalityType from "../Personality/PersonalityType";
 import FeedbackComponent from "../FeedbackComponent/feedbackComponent";
 import DueDiligence from "../InfoBoxes/DueDiligence";
+import "./profile-page.css";
 
 const ProfilePage = () => {
   return (
-    <div>
-      <NavbarComp />
-      <Greeting />
-      <ProfileBanner />
-      <PersonalityType />
-      <DueDiligence />
-      <AllExperience />
-      <FeedbackComponent />
+    <div className="main-containter">
+      <div className="vert-nav">
+        <NavbarComp />
+      </div>
+      <div className="main-content">
+        <Greeting />
+        <ProfileBanner />
+        <PersonalityType />
+        <DueDiligence />
+        <AllExperience />
+        <FeedbackComponent />
+      </div>
     </div>
   );
 };

@@ -1,0 +1,14 @@
+.main-containter {
+  background-color: #f3f3f3;
+  display: flex;
+}
+
+.vert-nav {
+  background-color: red;
+  display: flex;
+}
+
+.main-content {
+  margin-left: 20px;
+  padding: 30px;
+}
