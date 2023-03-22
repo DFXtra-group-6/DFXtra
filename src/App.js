@@ -1,5 +1,7 @@
 import "./App.css";
 import AllExperience from "./components/Experience/AllExperience";
+import AllTraining from "./components/Training/AllTraining";
+
 import ProfileBanner from "./components/ProfileBanner/profile-banner";
 
 import NavbarComp from "./components/NavBar/NavbarComp";
@@ -28,6 +30,7 @@ function App() {
             <FeedbackComponent />
         </div>
     );
+  );
 }
 
 export default App;
