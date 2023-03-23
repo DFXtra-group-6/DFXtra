@@ -1,10 +1,10 @@
-import React from 'react'
+import React from "react";
 
 const KeyTools = ({ keyTools }) => {
-    return (
-        <div>
-            <h4>Key Tools</h4>
-            {/* {keyTools.map(keyTool => {
+  return (
+    <div className="border border-rounded bg-white mb-3">
+      <h4>Key Tools</h4>
+      {/* {keyTools.map(keyTool => {
                 return (
                     <>
                         <container className='col-6'>
@@ -20,8 +20,8 @@ const KeyTools = ({ keyTools }) => {
             })
 
             } */}
-        </div>
-    )
-}
+    </div>
+  );
+};
 
-export default KeyTools
+export default KeyTools;
