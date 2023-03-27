@@ -14,7 +14,6 @@ import "./profile-page.css";
 
 const ProfilePage = () => {
   return (
-    <div className="main-container">
     <div className="main-container container-fluid p-0">
       <div className="vert-nav">
         <NavbarComp />
@@ -49,8 +48,7 @@ const ProfilePage = () => {
           </div>
         </div>
       </div>
-      </div>
-      </div>
+    </div>
   );
 };
 
