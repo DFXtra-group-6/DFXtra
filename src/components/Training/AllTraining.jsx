@@ -32,7 +32,8 @@ const AllTraining = () => {
   };
 
   return (
-    <div className="row mx-2 col-md-8 border p-4 mt-3 training-table">
+    // <div className="row mx-2 col-md-8 border p-4 mt-3 training-table">
+    <div className="row  col border p-4 mt-3 training-table">
       <h3>Training Progress</h3>
       <p>Expand each module to learn more</p>
       <div className="training my-3">

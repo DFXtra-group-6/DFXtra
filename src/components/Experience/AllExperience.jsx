@@ -32,7 +32,8 @@ const AllExperience = () => {
   };
 
   return (
-    <div className="row mx-2 col-md-8 border p-4 mt-3 experience-table">
+    // <div className="row mx-3 col-md-8 border p-4 mt-3 experience-table">
+    <div className="row  col order p-4 experience-table">
       <h3>Experience</h3>
       <p>View the work experience of the engineer</p>
       <div className="exp my-3">
