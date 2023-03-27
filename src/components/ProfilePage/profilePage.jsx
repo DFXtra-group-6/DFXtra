@@ -12,44 +12,45 @@ import KeyTools from "../InfoBoxes/KeyTools";
 import AllTraining from "../Training/AllTraining";
 import "./profile-page.css";
 
-const ProfilePage = () => {
-  return (
-    <div className="main-container container-fluid p-0">
-      <div className="vert-nav">
-        <NavbarComp />
-      </div>
-      <div className="container-fluid">
-        <div className="row">
-          <div className="main-content">
-            <div className="col mb-3">
-              <div className="">
-                <Greeting />
-              </div>
-              <div>
-                <ProfileBanner />
-              </div>
+const ProfilePage = ({ profileData }) => {
+
+    return (
+        <div className="main-container container-fluid p-0">
+            <div className="vert-nav">
+                <NavbarComp />
             </div>
-            <div className="col ">
-              <div className="row ">
-                <div className="col-lg-9 ">
-                  <AllExperience />
-                  <AllTraining />
-                  <FeedbackComponent />
+            <div className="container-fluid">
+                <div className="row">
+                    <div className="main-content">
+                        <div className="col mb-3">
+                            <div className="">
+                                <Greeting name={profileData.name} />
+                            </div>
+                            <div>
+                                <ProfileBanner profileData={profileData} />
+                            </div>
+                        </div>
+                        <div className="col ">
+                            <div className="row ">
+                                <div className="col-lg-9 ">
+                                    <AllExperience experience={profileData.experience} />
+                                    <AllTraining training={profileData.trainingProgress} />
+                                    <FeedbackComponent feedback={profileData.feedback} />
+                                </div>
+                                <div className=" col-lg-3">
+                                    <PersonalityType />
+                                    <Certifications certifications={profileData.certifications} />
+                                    <DueDiligence dueDiligence={profileData.dueDiligenceChecks} />
+                                    <Interests interests={profileData.interests} />
+                                    <KeyTools keyTools={profileData.keyTools} />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div className=" col-lg-3">
-                  <PersonalityType />
-                  <Certifications />
-                  <DueDiligence />
-                  <Interests />
-                  <KeyTools />
-                </div>
-              </div>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
-  );
+    );
 };
 
 export default ProfilePage;
