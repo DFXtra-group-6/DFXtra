@@ -37,10 +37,11 @@ export default function PersonalityType() {
         maxWidth: "400px",
         maxHeight: "200px",
         border: "1px solid #ccc",
+
         borderRadius: "10px",
         backgroundColor: "white",
         overflow: "hidden",
-        // float: "right",
+        float: "right",
       }}
     >
       <button
@@ -61,7 +62,6 @@ export default function PersonalityType() {
             style={{
               display: "flex",
               flexDirection: "column",
-
               height: "100%",
             }}
           >
@@ -110,9 +110,9 @@ export default function PersonalityType() {
                   {personality.description.substring(0, 200)}
                 </p>
                 <button
+                  onClick={handleEdit}
                   className="Edit-button"
                   type="button"
-                  onClick={handleEdit}
                 >
                   Edit
                 </button>
