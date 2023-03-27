@@ -5,6 +5,7 @@ const Interests = ({ interests }) => {
     <div className="border border-rounded bg-white mb-3">
       <h4>Interests</h4>
       {/* {interests.map(interest => {
+
             return (
                 <>
                     <div className='icon col-2'>
@@ -18,9 +19,11 @@ const Interests = ({ interests }) => {
             )
         })
 
+
             } */}
     </div>
   );
 };
+
 
 export default Interests;

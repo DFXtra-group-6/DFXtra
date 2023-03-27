@@ -1,5 +1,6 @@
 import React from "react";
 
+
 const DueDiligence = ({ dueDiligence }) => {
   return (
     <div className="border border-rounded bg-white mb-3">
@@ -11,6 +12,7 @@ const DueDiligence = ({ dueDiligence }) => {
       <p>Credit {dueDiligence.credit}</p>
       <p>Right to Work {dueDiligence.rightToWork}</p>
       <p>Education {dueDiligence.education}</p> */}
+
     </div>
   );
 };

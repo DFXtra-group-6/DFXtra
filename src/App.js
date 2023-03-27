@@ -5,7 +5,17 @@ import ProfilePage from "./components/ProfilePage/profilePage";
 function App() {
   return (
     <div>
-      <ProfilePage />
+      <NavbarComp />
+      <Greeting />
+      <ProfileBanner />
+      <PersonalityType />
+      {/* <Certifications /> */}
+      <DueDiligence />
+      {/* <Interests />
+      <KeyTools />
+      <Qualifications /> */}
+      <AllExperience />
+      <FeedbackComponent />
     </div>
   );
 }

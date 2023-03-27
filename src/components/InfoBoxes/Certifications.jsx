@@ -1,9 +1,8 @@
 import React from "react";
-import placeholder from "../../assets/placeholder.png";
-import "./certifications.css";
 
 const Certifications = ({ certifications }) => {
   return (
+
     <div className="certi-grouped mt-3 border-rounded container bg-white">
       <h4>Certifications</h4>
       <div className="row bg-white">
@@ -24,6 +23,7 @@ const Certifications = ({ certifications }) => {
           </div>
         </div>
       </div>
+
     </div>
   );
 };
