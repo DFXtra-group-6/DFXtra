@@ -11,7 +11,7 @@ import "./profile-page.css";
 
 const ProfilePage = () => {
   return (
-    <div className="main-containter">
+    <div className="main-container">
       <div className="vert-nav">
         <NavbarComp />
       </div>
