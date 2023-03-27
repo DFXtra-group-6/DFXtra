@@ -3,11 +3,11 @@ import "./greeting.css";
 const NavbarComp = () => {
   return (
     <>
-      <nav class="navbar flex-column navbar-expand-lg navbar-dark custom-bg">
+      <nav className="navbar flex-column navbar-expand-lg navbar-dark custom-bg">
         <img src={logo} width="30" height="30" alt="" />
 
         <button
-          class="navbar-toggler"
+          className="navbar-toggler"
           type="button"
           data-toggle="collapse"
           data-target="#navbarNav"
@@ -15,31 +15,31 @@ const NavbarComp = () => {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon"></span>
         </button>
         <div
-          class="collapse navbar-collapse flex-column justify-content-start"
+          className="collapse navbar-collapse flex-column justify-content-start"
           id="navbarNav"
         >
-          <ul class="navbar-nav flex-column ">
-            <li class="nav-item">
-              <a class="nav-link " href="#">
-                <i class="fas fa-home"></i>
+          <ul className="navbar-nav flex-column ">
+            <li className="nav-item">
+              <a className="nav-link " href="#">
+                <i className="fas fa-home"></i>
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <i class="fas fa-user"></i>
+            <li className="nav-item">
+              <a className="nav-link" href="#">
+                <i className="fas fa-user"></i>
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <i class="fas fa-cog"></i>
+            <li className="nav-item">
+              <a className="nav-link" href="#">
+                <i className="fas fa-cog"></i>
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <i class="fas fa-align-justify"></i>
+            <li className="nav-item">
+              <a className="nav-link" href="#">
+                <i className="fas fa-align-justify"></i>
               </a>
             </li>
           </ul>

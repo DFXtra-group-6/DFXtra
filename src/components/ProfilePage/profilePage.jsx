@@ -31,7 +31,7 @@ const ProfilePage = () => {
             </div>
             <div className="col ">
               <div className="row ">
-                <div className="col-lg-9  ">
+                <div className="col-lg-9 ">
                   <AllExperience />
                   <AllTraining />
                   <FeedbackComponent />
