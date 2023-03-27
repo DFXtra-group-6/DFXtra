@@ -40,7 +40,7 @@ export default function PersonalityType() {
         borderRadius: "10px",
         backgroundColor: "white",
         overflow: "hidden",
-        float: "right",
+        // float: "right",
       }}
     >
       <button

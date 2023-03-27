@@ -1,8 +1,11 @@
-import React from 'react'
+import React from "react";
 
 const Interests = ({ interests }) => {
-    return (
-        <div>{interests.map(interest => {
+  return (
+    <div className="border border-rounded bg-white mb-3">
+      <h4>Interests</h4>
+      {/* {interests.map(interest => {
+
             return (
                 <>
                     <div className='icon col-2'>
@@ -16,8 +19,11 @@ const Interests = ({ interests }) => {
             )
         })
 
-        }</div>
-    )
-}
 
-export default Interests
+            } */}
+    </div>
+  );
+};
+
+
+export default Interests;
