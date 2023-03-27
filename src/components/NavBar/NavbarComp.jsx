@@ -1,6 +1,12 @@
 import logo from "../../assets/df.png";
 import "./greeting.css";
 const NavbarComp = () => {
+
+  const handleLogout = () => {
+    localStorage.removeItem(`user`);
+  }
+
+
   return (
     <>
       <nav class="navbar flex-column navbar-expand-lg navbar-dark custom-bg">
@@ -40,6 +46,11 @@ const NavbarComp = () => {
             <li class="nav-item">
               <a class="nav-link" href="#">
                 <i class="fas fa-align-justify"></i>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" onClick={handleLogout}>
+                <i class="fa fa-sign-out" aria-hidden="true"></i>
               </a>
             </li>
           </ul>
