@@ -1,5 +1,6 @@
 .main-container {
-  background-color: #f3f3f3;
+  background-color: #f0f3f8;
+  /* background-color: blue; */
   display: flex;
 }
 
@@ -7,10 +8,14 @@
   background-color: red;
   display: flex;
 }
-
+.row {
+  background-color: #f0f3f8;
+}
 .main-content {
-  margin-left: 20px;
-  padding: 30px;
+  background-color: #f0f3f8;
+
+  /* margin-left: 20px;
+  padding: 30px; */
   /* background-color: red; */
 }
 .sub-main-content {

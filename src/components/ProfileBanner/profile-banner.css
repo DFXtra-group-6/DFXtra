@@ -9,6 +9,16 @@ body {
   background-color: white;
   border-radius: 10px;
 }
+/* .half-background {
+  background-color: red;
+  position: absolute;
+  max-width: 100%;
+  min-width: 100%;
+  max-height: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  overflow: hidden;
+} */
 /* Still need to get this to work with the main banner */
 /* .background {
   background-image: url(../../assets/banner-background.jpg);
@@ -82,11 +92,15 @@ body {
 
 @media (max-width: 726px) {
   .container2 {
+    /* padding: 10px; */
     justify-content: center;
-    padding: 10px;
   }
   .user-name {
     justify-content: center;
     margin-top: 15px;
+  }
+  .content {
+    flex-direction: column;
+    align-items: center;
   }
 }

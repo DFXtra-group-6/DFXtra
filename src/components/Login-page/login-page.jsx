@@ -4,7 +4,7 @@ const LoginPage = () => {
     return ( 
     <div className="main-container">
         <Login />
-            </div>
+    </div>
     )
 }
 export default LoginPage;
