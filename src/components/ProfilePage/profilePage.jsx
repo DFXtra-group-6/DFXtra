@@ -46,7 +46,7 @@ const ProfilePage = ({ data }) => {
                                         <Greeting />
                                     </div>
                                     <div>
-                                        <ProfileBanner />
+                                        <ProfileBanner data={data} />
                                     </div>
                                 </div>
                                 <div className="col ">
