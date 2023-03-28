@@ -14,8 +14,8 @@ function App() {
     <div>
       <BrowserRouter>
         <Routes>
-          <Route path="/profile" element={<ProfilePage />} />
           <Route path="/" element={<LoginPage />} />
+          <Route path="/profile" element={<ProfilePage />} />
         </Routes>
       </BrowserRouter>
     </div>
