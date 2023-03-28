@@ -59,9 +59,9 @@ const ProfilePage = ({ data }) => {
                                         <div className=" col-lg-3">
                                             <PersonalityType />
                                             <Certifications data={data} />
-                                            <DueDiligence />
-                                            <Interests />
-                                            <KeyTools />
+                                            <DueDiligence data={data} />
+                                            <Interests data={data} />
+                                            <KeyTools data={data} />
                                         </div>
                                     </div>
                                 </div>
