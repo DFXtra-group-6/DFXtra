@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
 
+
     const [data, setData] = useState({ _id: "" });
 
     const getDataHandler = async () => {
@@ -30,6 +31,7 @@ function App() {
             </BrowserRouter>
         </div>
     );
+
 }
 
 export default App;
