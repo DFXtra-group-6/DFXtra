@@ -96,6 +96,7 @@ const Login = () => {
               </a>
             </div>
 
+
             <div class="footer">
               <h6>© 2022 Digital Futures</h6>
             </div>
