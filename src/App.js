@@ -13,7 +13,6 @@ function App() {
     const getDataHandler = async () => {
         const getDataResult = await getDataAsync();
         const data = getDataResult?.data ? getDataResult.data : {};
-
         setData(data);
     }
 
