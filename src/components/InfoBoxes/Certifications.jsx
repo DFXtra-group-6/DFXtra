@@ -8,7 +8,7 @@ const Certifications = ({ data }) => {
     const populate = () => {
         const display = certifications.map((certification, index) => {
             return (
-                <div key={index} className="row bg-white">
+                <div key={index} className="bg-white">
                     <div className="row border bg-light">
                         <div className="icon col">
                             <img

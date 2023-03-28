@@ -1,28 +1,30 @@
 import React from "react";
+const Interests = ({ data }) => {
 
-const Interests = ({ interests }) => {
-  return (
-    <div className="border border-rounded bg-white mb-3">
-      <h4>Interests</h4>
-      {/* {interests.map(interest => {
+    console.dir(data.interests)
 
+    const interests = data.interests;
+
+    const populate = () => {
+        const display = interests.map(interest => {
             return (
                 <>
-                    <div className='icon col-2'>
-                        <img src='./certificate.svg' className='icon' />
-                    </div>
-                    <div className='description col-10'>
-                        <p>{interest.type}</p>
+                    <div className='row m-1'>
+                        <p><strong>{interest.type}</strong></p>
                         <p>{interest.name}</p>
                     </div>
                 </>
             )
         })
+        return display;
+    }
 
-
-            } */}
-    </div>
-  );
+    return (
+        <div className="border border-rounded bg-white mb-3">
+            <h4>Interests</h4>
+            {populate()}
+        </div>
+    );
 };
 
 
