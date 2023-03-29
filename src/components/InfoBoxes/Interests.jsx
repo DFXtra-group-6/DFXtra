@@ -56,7 +56,7 @@ const Interests = ({ data }) => {
             <form className="form-control">
               <h4 className="text-center ">Add Interests</h4>
               <div className="form-group">
-                <label className="m-1 form-label">Type:</label>
+                <label className="m-1 form-label">Category:</label>
                 <select className="p-1">
                   <option value="sport">Sport</option>
                   <option value="travel">Travel</option>
