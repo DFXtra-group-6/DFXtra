@@ -9,7 +9,7 @@ import DueDiligence from "../InfoBoxes/DueDiligence";
 import Certifications from "../InfoBoxes/Certifications";
 import Interests from "../InfoBoxes/Interests";
 import KeyTools from "../InfoBoxes/KeyTools";
-// import Qualifications from "../InfoBoxes/Qualifications";
+import Qualifications from "../InfoBoxes/Qualifications";
 import AllTraining from "../Training/AllTraining";
 import "./profile-page.css";
 
@@ -58,6 +58,7 @@ const ProfilePage = ({ data }) => {
                                         </div>
                                         <div className=" col-lg-3">
                                             <PersonalityType />
+                                            <Qualifications data={data.qualifications} />
                                             <Certifications data={data} />
                                             <DueDiligence data={data} />
                                             <Interests data={data} />
