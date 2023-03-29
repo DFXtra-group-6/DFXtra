@@ -1,6 +1,6 @@
 import "../Training/training.css";
-import PropTypes from "prop-types";
-import TrainingModel from "../utils/Training.model";
+// import PropTypes from "prop-types";
+// import TrainingModel from "../utils/Training.model";
 
 const Training = (userTraining) => {
   const { challengeName, challenge, result } = userTraining;
@@ -26,8 +26,8 @@ const Training = (userTraining) => {
   );
 };
 
-Training.propTypes = {
-  userTraining: PropTypes.instanceOf(TrainingModel),
-};
+// Training.propTypes = {
+//   userTraining: PropTypes.instanceOf(TrainingModel),
+// };
 
 export default Training;
