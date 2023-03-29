@@ -69,14 +69,11 @@ const ProfilePage = () => {
                                     <div className="row ">
                                         <div className="col-lg-9 ">
                                             <AllExperience data={data} />
-                                            <AllTraining data={data}/>
-                                            <FeedbackComponent />
-                                            <AllExperience />
-                                            <AllTraining />
+                                            <AllTraining data={data} />
                                             <FeedbackComponent data={data.feedback} />
                                         </div>
                                         <div className=" col-lg-3">
-                                            <PersonalityType />
+                                            <PersonalityType data={data} />
                                             <Certifications data={data} />
                                             <DueDiligence data={data} />
                                             <Interests data={data} />

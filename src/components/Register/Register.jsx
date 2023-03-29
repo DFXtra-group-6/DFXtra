@@ -6,7 +6,7 @@ import "../Login/login.css";
 import bluelogo from "../../assets/blue-logo.png";
 import SignInImage from "../../assets/SignInImage.png";
 
-const Login = () => {
+const Register = () => {
 
     const navigate = useNavigate();
 
@@ -23,33 +23,29 @@ const Login = () => {
         });
     };
 
-    const login = async (e) => {
+    const register = async (e) => {
         e.preventDefault();
 
-        const res = await submitLogin();
+        const res = await registerUser(user);
 
         if (res.user) {
             alert(res.message);
-            localStorage.setItem(`user`, JSON.stringify(res.user));
-            // navigate('/profile');
-            navigate(`/profile/${res.user._id}`);
-
+            setUser({ email: ``, password: ``, name: ``, handle: `` }); // Resets the inputs
+            navigate(`/`);
             return;
         }
         alert(res.message);
     };
 
-    const submitLogin = async () => {
+    const registerUser = async (user) => {
         try {
-            const res = await axios
-                .post(process.env.REACT_APP_URL, user)
-
+            const res = await axios.post(`${process.env.REACT_APP_URL}/register`, user);
             return { message: res.data.message, status: res.status, user: res.data.user }
         }
-        catch (err) {
+        catch (error) {
             return {
-                status: err.response?.status,
-                message: err.response?.data.message,
+                status: error.response?.status,
+                message: error.response?.data.message,
                 error: {
                     type: "post",
                 }
@@ -78,8 +74,8 @@ const Login = () => {
             <div className="container-fluid">
                 <div class="row">
                     <div class="col-4">
-                        <h2>Sign In</h2>
-                        <form onSubmit={login}>
+                        <h2>Create a new account</h2>
+                        <form onSubmit={register}>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Email address*</label>
                                 <input
@@ -108,16 +104,9 @@ const Login = () => {
                             </div>
 
                             <button type="submit" class="btn btn-primary">
-                                Sign in
+                                Register
                             </button>
                         </form>
-
-                        <div class="touch">
-                            <span>Sign up for an account</span>
-                            <a href='/register'>
-                                <strong> Register</strong>
-                            </a>
-                        </div>
 
                         <div class="touch">
                             <span>Having trouble? </span>
@@ -140,4 +129,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default Register;
