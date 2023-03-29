@@ -6,7 +6,7 @@ import "../Login/login.css";
 import bluelogo from "../../assets/blue-logo.png";
 import SignInImage from "../../assets/SignInImage.png";
 
-const Login = () => {
+const Register = () => {
 
     const navigate = useNavigate();
 
@@ -23,33 +23,29 @@ const Login = () => {
         });
     };
 
-    const login = async (e) => {
+    const register = async (e) => {
         e.preventDefault();
 
-        const res = await submitLogin();
+        const res = await registerUser(user);
 
         if (res.user) {
             alert(res.message);
-            localStorage.setItem(`user`, JSON.stringify(res.user));
-            // navigate('/profile');
-            navigate(`/profile/${res.user._id}`);
-
+            setUser({ email: ``, password: ``, name: ``, handle: `` }); // Resets the inputs
+            navigate(`/`);
             return;
         }
         alert(res.message);
     };
 
-    const submitLogin = async () => {
+    const registerUser = async (user) => {
         try {
-            const res = await axios
-                .post(process.env.REACT_APP_URL, user)
-
+            const res = await axios.post(`${process.env.REACT_APP_URL}/register`, user);
             return { message: res.data.message, status: res.status, user: res.data.user }
         }
-        catch (err) {
+        catch (error) {
             return {
-                status: err.response?.status,
-                message: err.response?.data.message,
+                status: error.response?.status,
+                message: error.response?.data.message,
                 error: {
                     type: "post",
                 }
@@ -59,9 +55,9 @@ const Login = () => {
 
     return (
         <>
-            <div className="">
-                <nav className="navbar navbar-light bg-light ">
-                    <a className="navbar-brand" href="#">
+            <div class="">
+                <nav class="navbar navbar-light bg-light ">
+                    <a class="navbar-brand" href="#">
                         <img
                             src={bluelogo}
                             width="40"
@@ -69,57 +65,50 @@ const Login = () => {
                             alt="digital futures logo"
                         />
                     </a>
-                    <button type="button" className="btn btn-outline-dark">
+                    <button type="button" class="btn btn-outline-dark">
                         Talk to us
                     </button>
                 </nav>
             </div>
 
             <div className="container-fluid">
-                <div className="row">
-                    <div className="col-4">
-                        <h2>Sign In</h2>
-                        <form onSubmit={login}>
-                            <div className="form-group">
+                <div class="row">
+                    <div class="col-4">
+                        <h2>Create a new account</h2>
+                        <form onSubmit={register}>
+                            <div class="form-group">
                                 <label for="exampleInputEmail1">Email address*</label>
                                 <input
                                     type="email"
                                     name="email"
                                     value={user.email}
                                     onChange={handleChange}
-                                    className="form-control"
+                                    class="form-control"
                                     id="exampleInputEmail1"
                                     aria-describedby="emailHelp"
                                     placeholder="Enter email"
                                 />
                             </div>
 
-                            <div className="form-group">
+                            <div class="form-group">
                                 <label for="exampleInputPassword1">Password*</label>
                                 <input
                                     type="password"
                                     name="password"
                                     value={user.password}
                                     onChange={handleChange}
-                                    className="form-control"
+                                    class="form-control"
                                     id="exampleInputPassword1"
                                     placeholder="Password"
                                 />
                             </div>
 
-                            <button type="submit" className="btn btn-primary">
-                                Sign in
+                            <button type="submit" class="btn btn-primary">
+                                Register
                             </button>
                         </form>
 
-                        <div className="touch">
-                            <span>Sign up for an account</span>
-                            <a href='/register'>
-                                <strong> Register</strong>
-                            </a>
-                        </div>
-
-                        <div className="touch">
+                        <div class="touch">
                             <span>Having trouble? </span>
                             <a href="https://digitalfutures.com/">
                                 <strong> Get in touch</strong>
@@ -127,11 +116,11 @@ const Login = () => {
                         </div>
 
 
-                        <div className="footer">
+                        <div class="footer">
                             <h6>© 2022 Digital Futures</h6>
                         </div>
                     </div>
-                    <div className="col-7">
+                    <div class="col-7">
                         <img src={SignInImage} alt="sign in" />
                     </div>
                 </div>
@@ -140,4 +129,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default Register;

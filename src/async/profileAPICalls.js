@@ -12,3 +12,14 @@ export const getDataAsync = async (user) => {
         throw err.message;
     }
 }
+
+export const submitProfileData = async (data) => {
+    const user = localStorage.getItem('user');
+    try {
+        const res = await axios
+            .put(`${process.env.REACT_APP_URL}/profile/${data._id}`, data)
+    }
+    catch (err) {
+        console.dir(err)
+    }
+}
