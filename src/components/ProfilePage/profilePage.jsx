@@ -12,8 +12,23 @@ import KeyTools from "../InfoBoxes/KeyTools";
 // import Qualifications from "../InfoBoxes/Qualifications";
 import AllTraining from "../Training/AllTraining";
 import "./profile-page.css";
+import { getDataAsync } from '../../async/profileAPICalls';
 
-const ProfilePage = ({ data }) => {
+const ProfilePage = () => {
+
+    const [data, setData] = useState({ _id: "" });
+
+    const user = JSON.parse(localStorage.getItem('user'));
+
+    const getDataHandler = async () => {
+        const getDataResult = await getDataAsync(user);
+        const data = getDataResult?.data ? getDataResult.data : {};
+        setData(data);
+    }
+
+    useEffect(() => {
+        getDataHandler();
+    }, [])
 
     const [dataStatus, setDataStatus] = useState({ name: `loading`, message: `Data is loading...` });
 
@@ -38,6 +53,7 @@ const ProfilePage = ({ data }) => {
                     <div className="vert-nav">
                         <NavbarComp />
                     </div>
+
                     <div className="container-fluid">
                         <div className="row">
                             <div className="main-content">
@@ -55,6 +71,9 @@ const ProfilePage = ({ data }) => {
                                             <AllExperience data={data} />
                                             <AllTraining data={data}/>
                                             <FeedbackComponent />
+                                            <AllExperience />
+                                            <AllTraining />
+                                            <FeedbackComponent data={data.feedback} />
                                         </div>
                                         <div className=" col-lg-3">
                                             <PersonalityType />
