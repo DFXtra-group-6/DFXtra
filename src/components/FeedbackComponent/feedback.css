@@ -16,7 +16,7 @@
 }
 
 .user-image-thumbnail {
-  border: 1px solid black;
+  border: 1px solid grey;
   position: relative;
   overflow: hidden;
   height: 50px;
