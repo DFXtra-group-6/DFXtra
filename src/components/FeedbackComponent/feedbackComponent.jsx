@@ -5,7 +5,7 @@ import placeholder from "../../assets/profile-icon.png";
 
 const Feedback = ({ data }) => {
 
-  const feedback = data.feedback;
+  const feedback = data;
 
   const populate = () => {
     const display = feedback.map(feedback => {
