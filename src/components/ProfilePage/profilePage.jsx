@@ -70,7 +70,7 @@ const ProfilePage = () => {
                                         <div className="col-lg-9 ">
                                             <AllExperience />
                                             <AllTraining />
-                                            <FeedbackComponent />
+                                            <FeedbackComponent data={data.feedback} />
                                         </div>
                                         <div className=" col-lg-3">
                                             <PersonalityType />

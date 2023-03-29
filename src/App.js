@@ -4,24 +4,9 @@ import ProfilePage from "./components/ProfilePage/profilePage";
 import { useState, useEffect } from "react";
 import { getDataAsync } from "./async/profileAPICalls";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import AuthService from "./services/auth.service";
 
 function App() {
-
-
-    // const [data, setData] = useState({ _id: "" });
-
-    // const user = JSON.parse(localStorage.getItem('user'));
-
-    // const getDataHandler = async () => {
-    //     const getDataResult = await getDataAsync(user);
-    //     console.dir(getDataResult)
-    //     const data = getDataResult?.data ? getDataResult.data : {};
-    //     setData(data);
-    // }
-
-    // useEffect(() => {
-    //     getDataHandler();
-    // }, [])
 
     return (
         <div>
@@ -33,6 +18,7 @@ function App() {
             </BrowserRouter>
         </div>
     );
+
 
 }
 
