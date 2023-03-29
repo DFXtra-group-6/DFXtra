@@ -4,6 +4,8 @@ import './certifications.css';
 
 const Qualifications = ({ data }) => {
 
+    const handleEditButton = () => { }
+
     const qualifications = data;
     const populate = () => {
 
@@ -30,7 +32,14 @@ const Qualifications = ({ data }) => {
 
     return (
         <div className="certi-grouped mt-3 border-rounded container bg-white">
-            <h4>Qualifications</h4>
+            <div className="row space-between">
+                <div className="col">
+                    <h4>Qualifications</h4>
+                </div>
+                <div className="col">
+                    <i className="fa fa-light fa-pencil" onClick={handleEditButton}></i>
+                </div>
+            </div>
             {populate()}
         </div>
     )
