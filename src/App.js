@@ -8,30 +8,17 @@ import AuthService from "./services/auth.service";
 
 function App() {
 
+    return (
+        <div>
+            <BrowserRouter>
+                <Routes>
+                    <Route path="/profile/:id" element={<ProfilePage />} />
+                    <Route path="/" element={<LoginPage />} />
+                </Routes>
+            </BrowserRouter>
+        </div>
+    );
 
-
-  const [data, setData] = useState({ _id: "" });
-
-  const getDataHandler = async () => {
-    const getDataResult = await getDataAsync();
-    const data = getDataResult?.data ? getDataResult.data : {};
-    setData(data);
-  }
-
-  useEffect(() => {
-    getDataHandler();
-  }, [])
-
-  return (
-    <div>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/profile" element={<ProfilePage data={data} />} />
-          <Route path="/" element={<LoginPage />} />
-        </Routes>
-      </BrowserRouter>
-    </div>
-  );
 
 }
 

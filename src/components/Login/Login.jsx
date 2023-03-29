@@ -31,21 +31,19 @@ const Login = () => {
         if (res.user) {
             alert(res.message);
             localStorage.setItem(`user`, JSON.stringify(res.user));
-            navigate('/profile');
+            // navigate('/profile');
+            navigate(`/profile/${res.user._id}`);
+
             return;
         }
         alert(res.message);
     };
 
     const submitLogin = async () => {
-        console.dir(user)
         try {
             const res = await axios
                 .post(process.env.REACT_APP_URL, user)
-            // .then((res) => {
-            //     localStorage.setItem("token", res.data.token);
-            //     window.location.href = "/profile";
-            // });
+
             return { message: res.data.message, status: res.status, user: res.data.user }
         }
         catch (err) {
