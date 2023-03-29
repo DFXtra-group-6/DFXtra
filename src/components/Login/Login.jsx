@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "../Login/login.css";
 
@@ -7,6 +7,9 @@ import bluelogo from "../../assets/blue-logo.png";
 import SignInImage from "../../assets/SignInImage.png";
 
 const Login = () => {
+
+    const navigate = useNavigate();
+
     const [user, setUser] = useState({
         email: "",
         password: "",
@@ -22,16 +25,37 @@ const Login = () => {
 
     const login = async (e) => {
         e.preventDefault();
-        const res = await axios
-            .post(process.env.REACT_APP_URL, {
-                email: user.email,
-                password: user.password,
-            })
-            .then((res) => {
-                localStorage.setItem("token", res.data.token);
-                window.location.href = "/profile";
-            });
+
+        const res = await submitLogin();
+
+        if (res.user) {
+            alert(res.message);
+            localStorage.setItem(`user`, JSON.stringify(res.user));
+            // navigate('/profile');
+            navigate(`/profile/${res.user._id}`);
+
+            return;
+        }
+        alert(res.message);
     };
+
+    const submitLogin = async () => {
+        try {
+            const res = await axios
+                .post(process.env.REACT_APP_URL, user)
+
+            return { message: res.data.message, status: res.status, user: res.data.user }
+        }
+        catch (err) {
+            return {
+                status: err.response?.status,
+                message: err.response?.data.message,
+                error: {
+                    type: "post",
+                }
+            }
+        }
+    }
 
     return (
         <>
