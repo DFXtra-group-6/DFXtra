@@ -49,7 +49,7 @@ const NavbarComp = () => {
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#" onClick={handleLogout}>
+              <a class="nav-link" href="/" onClick={handleLogout}>
                 <i class="fa fa-sign-out" aria-hidden="true"></i>
               </a>
             </li>
