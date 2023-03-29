@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { submitProfileData } from "../../async/profileAPICalls";
 
 const Interests = ({ data }) => {
@@ -17,6 +17,10 @@ const Interests = ({ data }) => {
     const handleType = (e) => {
         setType(e.target.value);
     };
+
+    useEffect(() => {
+
+    }, [data])
 
     const handleChange = (e) => {
         setName(e.target.value);
@@ -39,9 +43,9 @@ const Interests = ({ data }) => {
 
     // console.dir(data.interests);
 
-    // const interests = data.interests;
-    const emptyArray = [];
-    const interests = emptyArray;
+    const interests = data.interests;
+    //emptyArray = [];
+    // const interests = emptyArray;
 
     const populate = () => {
         if (interests.length <= 0) {
@@ -77,7 +81,7 @@ const Interests = ({ data }) => {
                 </div>
                 {isFormVisible ? (
                     <div className="bg-light container">
-                        <form className="form-control" action={submitButton}>
+                        <form className="form-control" onSubmit={submitButton}>
                             <h4 className="text-center ">Add Interests</h4>
                             <div className="form-group">
                                 <label className="m-1 form-label">Category:</label>
@@ -105,14 +109,14 @@ const Interests = ({ data }) => {
                             <div className="d-flex justify-content-evenly bg-light">
                                 <div>
                                     <i
-                                        class="fa-sharp fa-solid fa-circle-xmark fa-2xl"
+                                        className="fa-sharp fa-solid fa-circle-xmark fa-2xl"
                                         onClick={handleCancelButton}
                                     ></i>
                                 </div>
 
                                 <div>
                                     <i
-                                        class="fa-solid fa-circle-plus fa-2xl"
+                                        className="fa-solid fa-circle-plus fa-2xl"
                                         onClick={submitButton}
                                     ></i>
                                 </div>
