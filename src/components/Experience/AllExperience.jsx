@@ -3,9 +3,21 @@
 import Experience from "./Experience";
 import "../Experience/experience.css";
 
+import { useState } from "react";
+import EditExperienceForm from "./EditExpForm";
+
 const AllExperience = ({ data }) => {
   // const data = mockExpData;
   const experiences = data.experience;
+  const [selectedExperience, setSelectedExperience] = useState(null);
+  const [editFormOpen, setEditFormOpen] = useState(false);
+
+  editFormOpen && (
+    <EditExperienceForm
+      experience={selectedExperience}
+      onClose={() => setEditFormOpen(false)}
+    />
+  );
 
   const populateExpTable = () => {
     if (experiences?.length > 0) {
@@ -24,8 +36,8 @@ const AllExperience = ({ data }) => {
               position={expItem.position}
               dates={expItem.dates}
               skills={expItem.skills}
+              onEdit={() => setSelectedExperience(expItem)}
             />
-            {/* <Collapsible /> */}
           </>
         );
       });
@@ -35,10 +47,7 @@ const AllExperience = ({ data }) => {
   };
 
   return (
-    // <div className="row mx-3 col-md-8 border p-4 mt-3 experience-table">
     <div className="row  col order p-4 experience-table">
-      {/* <i className="fa fa-light fa-pencil" onClick={handleEditButton}></i> */}
-
       <h3>Experience</h3>
       <p>View the work experience of the engineer</p>
       <div className="exp my-3">

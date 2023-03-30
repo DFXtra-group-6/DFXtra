@@ -1,9 +1,36 @@
+.certifications-container {
+  border: 1px solid grey;
+  border-radius: 10px;
+  padding: 5px;
+  background-color: beige;
+  font-weight: bold;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.certifications-row {
+  flex-direction: row;
+}
+
+.certifications-box {
+  border-radius: 10px;
+  background-color: #f0f3f7;
+  padding: 3px;
+  width: auto;
+}
+
 .certi-grouped {
-    border-radius: 10px;
-    /* padding: 5px; */
+  border-radius: 10px;
+  /* padding: 5px; */
 }
 
 .icon {
-    width: 50px;
-    height: 50px;
+  width: 50px;
+  height: 50px;
+}
+.each-interest {
+  /* display: flex; */
+  width: 40%;
+  border: 1px solid red;
+  border-radius: 10px;
 }

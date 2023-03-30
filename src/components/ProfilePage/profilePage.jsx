@@ -9,7 +9,7 @@ import DueDiligence from "../InfoBoxes/DueDiligence";
 import Certifications from "../InfoBoxes/Certifications";
 import Interests from "../InfoBoxes/Interests";
 import KeyTools from "../InfoBoxes/KeyTools";
-// import Qualifications from "../InfoBoxes/Qualifications";
+import Qualifications from "../InfoBoxes/Qualifications";
 import AllTraining from "../Training/AllTraining";
 import "./profile-page.css";
 import { getDataAsync } from "../../async/profileAPICalls";
@@ -53,9 +53,8 @@ const ProfilePage = () => {
           <div className="vert-nav">
             <NavbarComp />
           </div>
-
           <div className="container-fluid">
-            <div className="row">
+            <div className="row mb-0 main-content">
               <div className="main-content">
                 <div className="col mb-3">
                   <div className="">
@@ -66,14 +65,15 @@ const ProfilePage = () => {
                   </div>
                 </div>
                 <div className="col ">
-                  <div className="row ">
+                  <div className="row mx-1">
                     <div className="col-lg-9 ">
                       <AllExperience data={data} />
                       <AllTraining data={data} />
                       <FeedbackComponent data={data.feedback} />
                     </div>
                     <div className=" col-lg-3">
-                      <PersonalityType />
+                      <PersonalityType data={data} />
+                      <Qualifications data={data.qualifications} />
                       <Certifications data={data} />
                       <DueDiligence data={data} />
                       <Interests data={data} />
