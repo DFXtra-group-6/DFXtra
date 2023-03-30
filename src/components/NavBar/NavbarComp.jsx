@@ -29,7 +29,7 @@ const NavbarComp = () => {
         >
           <ul className="navbar-nav flex-column ">
             <li className="nav-item">
-              <a className="nav-link " href="#">
+              <a className="nav-link " href="/">
                 <i className="fas fa-home"></i>
               </a>
             </li>

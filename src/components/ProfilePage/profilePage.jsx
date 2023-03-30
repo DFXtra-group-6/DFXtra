@@ -59,7 +59,7 @@ const ProfilePage = () => {
                             <div className="main-content">
                                 <div className="col mb-3">
                                     <div className="">
-                                        <Greeting />
+                                        <Greeting data={data} />
                                     </div>
                                     <div>
                                         <ProfileBanner data={data} />
