@@ -44,9 +44,9 @@ const Experience = ({ employer, position, dates, skills, onEdit }) => {
                 )}
             </div>
              {editFormOpen && (
-        <EditExperienceForm
-          experience={{ employer, position, dates, skills }}
-          onClose={() => setEditFormOpen(false)}
+            <EditExperienceForm
+                experience={{ employer, position, dates, skills }}
+                onClose={() => setEditFormOpen(false)}
         />
       )}
         </>
