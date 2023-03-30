@@ -74,7 +74,7 @@ const ProfilePage = () => {
                                         </div>
                                         <div className=" col-lg-3">
                                             <PersonalityType data={data} />
-                                            <Qualifications data={data} />
+                                            <Qualifications data={data.qualifications} />
                                             <Certifications data={data} />
                                             <DueDiligence data={data} />
                                             <Interests data={data} />
