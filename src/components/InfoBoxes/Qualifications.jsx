@@ -1,11 +1,34 @@
 import { useState, useEffect } from 'react'
+import { submitProfileData } from "../../async/profileAPICalls";
 import './certifications.css';
 
 const Qualifications = ({ data }) => {
 
     const [isFormVisible, setIsFormVisible] = useState(false);
 
-    const handleEditButton = () => { }
+    const [institution, setInstitution] = useState();
+    const [level, setLevel] = useState();
+    const [description, setDescription] = useState();
+    const user = JSON.parse(localStorage.getItem('user'));
+
+    const handleEditButton = () => {
+        setIsFormVisible(true);
+    }
+
+    const submitButton = () => {
+        submitProfileData({ data: { qualifications: { institution: institution, level: level, description: description } }, id: user._id });
+    }
+
+    const handleChange = (e) => {
+        setInstitution(e.target.value);
+        setLevel(e.target.value);
+        setDescription(e.target.value);
+    };
+
+    const handleCancelButton = () => {
+        setIsFormVisible(false);
+        console.log(isFormVisible);
+    };
 
     const qualifications = data;
     const populate = () => {
@@ -44,9 +67,65 @@ const Qualifications = ({ data }) => {
         <div className="border border-rounded bg-white mb-3">
             <div className="d-flex justify-content-between align-items-center m-1">
                 <h4>Qualifications</h4>
-                <i className="fa fa-light fa-pencil" onClick={handleEditButton} disabled={true}></i>
+                <i className="fa fa-light fa-pencil" onClick={handleEditButton}></i>
             </div>
-            {populate()}
+            {isFormVisible ? (
+                <div className="bg-light container">
+                    <form className="form-control" onSubmit={submitButton}>
+                        <h4 className="text-center ">Add Qualification</h4>
+                        <div className="form-group">
+                            <label className="m-1 form-label">Institution:</label>
+                            <input
+                                type="text"
+                                className="l"
+                                value={institution}
+                                onChange={handleChange}
+                                placeholder="Enter Institution . . ."
+                            />
+                        </div>
+                        <div className="form-group">
+                            <label className="m-2 form-label">Level: </label>
+                            <input
+                                type="text"
+                                className="l"
+                                value={level}
+                                onChange={handleChange}
+                                placeholder="Enter Level . . ."
+                            />
+                        </div>
+                        <div className="form-group">
+                            <label className="m-2 form-label">Description: </label>
+                            <input
+                                type="text"
+                                className="l"
+                                value={description}
+                                onChange={handleChange}
+                                placeholder="Enter Description . . ."
+                            />
+                        </div>
+                        <div className="d-flex justify-content-evenly bg-light">
+                            <div>
+                                <i
+                                    className="fa-sharp fa-solid fa-circle-xmark fa-2xl"
+                                    onClick={handleCancelButton}
+                                ></i>
+                            </div>
+
+                            <div>
+                                <i
+                                    className="fa-solid fa-circle-plus fa-2xl"
+                                    onClick={submitButton}
+                                ></i>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            ) : (
+                <div>
+                    {populate()}
+                </div>
+            )}
+
         </div>
     )
 
