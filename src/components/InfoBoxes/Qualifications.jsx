@@ -40,7 +40,6 @@ const Qualifications = ({ data }) => {
                     <i className="fa fa-light fa-pencil" onClick={handleEditButton}></i>
                 </div>
             </div>
-            {populate()}
         </div>
     )
 

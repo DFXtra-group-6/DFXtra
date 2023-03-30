@@ -41,8 +41,6 @@ const Interests = ({ data }) => {
         submitProfileData({ data: { interests: { name: name, type: type } }, id: user._id });
     }
 
-    // console.dir(data.interests);
-
     const interests = data.interests;
     //emptyArray = [];
     // const interests = emptyArray;
