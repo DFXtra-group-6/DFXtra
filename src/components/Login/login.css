@@ -1,0 +1,46 @@
+
+a{ 
+    text-decoration: none;
+}
+
+h2{
+    font-weight: bolder;
+}
+
+.btn-primary{
+    border-radius: 50px;
+    padding: 2% 40%;
+    margin: 3% 0%;
+    font-size:14px;
+}
+
+.btn-outline-dark{
+    border-radius: 50px;
+    border: solid black 2px;
+    padding: 5px 20px;
+    font-size:14px;
+}
+
+.form-group{
+    margin:5% 5% 5% 0%
+}
+
+.form-group>label{
+    font-size: 15px;
+}
+.col-4{
+    margin-left: 5%;
+    position: relative;
+}
+.touch{
+    padding:1%;
+    margin-left: 15%;
+}
+
+.footer{
+    position: absolute;
+    bottom: 0;
+}
+.row{
+    padding:0px;
+}

@@ -1,28 +1,28 @@
 // import sampleUsers from '../../sampleUsers.json';
-import mockExpData from "../../mockExpData.json";
-import TrainingModel from "../utils/Training.model";
+// import mockExpData from "../../mockExpData.json";
+// import TrainingModel from "../utils/Training.model";
 import Training from "./Training";
 import "../Training/training.css";
 
-const AllTraining = () => {
-  // const data = sampleUsers.users.trainingProgress;
-  const data = mockExpData;
+const AllTraining = ({ data }) => {
+  // const data = mockExpData;
+  const trainings = data.trainingProgress;
 
   const populateTrainingTable = () => {
-    if (data?.length > 0) {
-      const displayTraining = data.map((dataItem) => {
-        const train = new TrainingModel(
-          dataItem.challengeName,
-          dataItem.challenge,
-          dataItem.result,
-          dataItem.id
-        );
+    if (trainings?.length > 0) {
+      const displayTraining = trainings.map((training) => {
+        // const train = new TrainingModel(
+        //   dataItem.challengeName,
+        //   dataItem.challenge,
+        //   dataItem.result,
+        //   dataItem.id
+        // );
         return (
           <Training
-            key={train.id}
-            challengeName={train.challengeName}
-            challenge={train.challenge}
-            result={train.result}
+            // key={_id}
+            challengeName={training.name}
+            challenge={training.challenge}
+            result={training.result}
           />
         );
       });

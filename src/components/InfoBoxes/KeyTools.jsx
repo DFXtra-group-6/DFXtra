@@ -1,30 +1,45 @@
 import React from "react";
+import placeHolder from './images/certificate.svg';
+import './certifications.css';
 
-const KeyTools = ({ keyTools }) => {
+const KeyTools = ({ data }) => {
 
-  return (
-    <div className="border border-rounded bg-white mb-3">
-      <h4>Key Tools</h4>
-      {/* {keyTools.map(keyTool => {
+    const keyTools = data.keyTools;
 
-                return (
-                    <>
-                        <container className='col-6'>
-                            <div className='icon col-2'>
-                                <img src='./certificate.svg' className='icon' />
-                            </div>
-                            <div className='description col-10'>
-                                <p>{keyTool}</p>
-                            </div>
-                        </container>
-                    </>
-                )
-            })
+    const populate = () => {
+        if (keyTools.length <= 0) {
+            return (
+                <>
+                    <div className="text-center border m-4 bg-light">
+                        "No key tools added"
+                    </div>
+                </>
+            );
+        }
+        const display = keyTools.map(keyTool => {
 
+            return (
 
-            } */}
-    </div>
-  );
+                <div className=' col m-2'>
+                    <div className='icon'>
+                        <img src={placeHolder} className='icon' />
+                        <p className='description'>{keyTool}</p>
+                    </div>
+                </div>
+
+            )
+        })
+        return display;
+    }
+
+    return (
+        <div className="border border-rounded bg-white mb-3">
+            <h4>Key Tools</h4>
+            <div className="row keyTools">
+                {populate()}
+            </div>
+        </div>
+    );
 };
 
 export default KeyTools;
