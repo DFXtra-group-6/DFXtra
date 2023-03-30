@@ -1,7 +1,6 @@
 // import PropTypes from 'prop-types'
 import "./greeting.css";
 const Greeting = ({ data }) => {
-    console.dir(data)
     var hour = new Date().getHours();
     var partOfDay = "";
     if (hour < 12) {
