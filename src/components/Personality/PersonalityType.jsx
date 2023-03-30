@@ -31,156 +31,117 @@ export default function PersonalityType() {
   };
 
   return (
-    <div
-      className="container"
-      style={{
-        maxWidth: "400px",
-        maxHeight: "200px",
-        border: "1px solid #ccc",
-
-        borderRadius: "10px",
-        backgroundColor: "white",
-        overflow: "hidden",
-        float: "right",
-      }}
-    >
-      <button
-        style={{
-          width: "400px",
-          height: "220px",
-          border: "none",
-          borderRadius: "10px",
-          outline: "none",
-          backgroundColor: "white",
-        }}
+    <div className="container">
+      <h1 style={{ fontSize: "30px", display: "inline", paddingRight: "10px" }}>
+        Personality
+      </h1>
+      <i
         onClick={() => setFormVisible(true)}
+        className="fa fa-light fa-plus"
+      ></i>
+      <div
+        style={{
+          backgroundColor: "#F0F3F7",
+          marginBottom: "5px",
+          marginTop: "5px",
+          border: "1px solid #DEE2E6",
+        }}
+        className="row g-3"
       >
         {personality === null ? (
-          "Personality Type"
+          ""
         ) : (
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              height: "100%",
-            }}
-          >
+          <div>
             <p className="Personality-top">
-              <div className="row">
-                <div className="col-12">
-                  <h2 className="Personality-title">Personality type</h2>{" "}
-                </div>
-                <div className="col-12">
-                  {" "}
-                  <div className="Personality-user">
-                    {" "}
-                    John's personality type{" "}
-                  </div>
-                  <h3 className="Personality-description">
-                    {personality.personality}
-                  </h3>{" "}
-                </div>
-              </div>
+              <h3 className="Personality-description">
+                {personality.personality}
+              </h3>{" "}
             </p>
-            <div className="row" id="Result">
-              <div className="col-2">
-                <img
-                  className="Personality-img"
-                  src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/072/031/original/personality.png?1678974363"
-                  alt="Personality"
-                  style={{
-                    width: "70px",
-                    height: "70px",
-                    objectFit: "cover",
-                    float: "left",
-                    marginRight: "5px",
-                  }}
-                />
-              </div>
-              <div
-                className="col-10"
+            <div>
+              <img
+                className="Personality-img"
+                src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/074/280/original/undraw_Things_to_say_re_jpcg.png?1680204189"
+                alt="Personality"
                 style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  height: "120px",
+                  width: "60px",
+                  borderRadius: "50%",
+                  display: "inline",
                 }}
+              />
+
+              <p style={{ display: "inline", margin: "3px" }}>
+                {personality.description.substring(0, 200)}
+              </p>
+
+              <button
+                onClick={handleEdit}
+                className="btn btn-light"
+                type="button"
+                style={{ display: "block", margin: "0 auto" }}
               >
-                <p style={{ textAlign: "center", height: "60px" }}>
-                  {personality.description.substring(0, 200)}
-                </p>
-                <button
-                  onClick={handleEdit}
-                  className="Edit-button"
-                  type="button"
-                >
-                  Edit
-                </button>
-              </div>
+                Edit
+              </button>
             </div>
           </div>
         )}
-      </button>
 
-      {formVisible && (
-        <div
-          style={{
-            position: "fixed",
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            backgroundColor: "rgba(0, 0, 0, 0.3)",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <form
-            onSubmit={handleSubmit}
-            style={{
-              width: "400px",
-              height: "250px",
-              border: "1px solid grey",
-              borderRadius: "10px",
-              padding: "10px",
-              backgroundColor: "white",
-            }}
-          >
-            <div>
-              <label>
-                Personality:
-                <input
-                  type="text"
-                  value={personalityInput}
-                  onChange={(event) => setPersonalityInput(event.target.value)}
-                />
-              </label>
-            </div>
+        {formVisible && (
+          <div>
+            <form
+              onSubmit={handleSubmit}
+              style={{
+                width: "250px",
+                height: "220px",
+                border: "1px solid grey",
+                borderRadius: "10px",
+                padding: "10px",
+                backgroundColor: "white",
+              }}
+            >
+              <div>
+                <label>
+                  Personality:
+                  <input
+                    className="form-control"
+                    aria-describedby="inputGroup-sizing-sm"
+                    type="text"
+                    value={personalityInput}
+                    onChange={(event) =>
+                      setPersonalityInput(event.target.value)
+                    }
+                  />
+                </label>
+              </div>
 
-            <div>
-              <label>
-                Description:
-                <textarea
-                  value={descriptionInput}
-                  onChange={(event) => setDescriptionInput(event.target.value)}
-                />
-              </label>
-            </div>
+              <div>
+                <label>
+                  Description:
+                  <textarea
+                    className="form-control"
+                    value={descriptionInput}
+                    onChange={(event) =>
+                      setDescriptionInput(event.target.value)
+                    }
+                  />
+                </label>
+              </div>
 
-            <div style={{ display: "flex", justifyContent: "space-between" }}>
-              <button type="submit">
-                {personality === null
-                  ? "Add Personality Type"
-                  : "Update Personality Type"}
-              </button>
-              <button type="button" onClick={() => setFormVisible(false)}>
-                Cancel
-              </button>
-            </div>
-          </form>
-        </div>
-      )}
+              <div style={{ display: "flex", justifyContent: "space-between" }}>
+                <button className="btn btn-info" type="submit">
+                  {personality === null ? "Add" : "Update Personality Type"}
+                </button>
+                <button
+                  className="btn btn-light"
+                  type="button"
+                  onClick={() => setFormVisible(false)}
+                >
+                  Cancel
+                </button>
+              </div>
+            </form>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
