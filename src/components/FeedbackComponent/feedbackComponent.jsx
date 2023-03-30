@@ -4,15 +4,11 @@ import "./feedback.css";
 import placeholder from "../../assets/profile-icon.png";
 
 const Feedback = ({ data }) => {
-
-  const feedback = data;
-
+  const feedbacks = data;
   const populate = () => {
-    const display = feedback.map(feedback => {
-
+    const display = feedbacks.map((feedback) => {
       return (
         <>
-
           <div className="row g-0">
             <div className="image-socials col-md-1">
               <div className="user-image-thumbnail">
@@ -29,16 +25,14 @@ const Feedback = ({ data }) => {
               <div className="user-role">{feedback.userRole}</div>
             </div>
             <div className="user-feedback col">
-              <p>
-                {feedback.text}
-              </p>
+              <p>{feedback.text}</p>
             </div>
           </div>
         </>
-      )
-    })
+      );
+    });
     return display;
-  }
+  };
 
   return (
     <div className="card mb-3 ">
@@ -110,6 +104,5 @@ const Feedback = ({ data }) => {
 //   </div>
 // </div>
 // </div>
-
 
 export default Feedback;

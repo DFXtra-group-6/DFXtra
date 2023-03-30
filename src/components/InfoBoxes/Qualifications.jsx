@@ -11,41 +11,11 @@ const Qualifications = ({ data }) => { // added props
     const qualifications = data;
 
     const user = JSON.parse(localStorage.getItem('user'));
-
-    // You should not be doing a GET request here, the data has already been requests on ProfilePage
-    /*useEffect(() => {
-      axios
-        .get(`${process.env.REACT_APP_API_ENDPOINT}/qualifications`)
-        .then((response) => {
-          setQualifications(response.data);
-        })
-        .catch((error) => {
-          console.error(error);
-        });
-    }, []);*/
+    console.dir(user)
 
     const submitButton = () => {
         submitProfileData({ data: { qualifications: { level: level, institution: institution, description: description } }, id: user._id });
     }
-
-    const handleAddQualification = (event) => {
-        event.preventDefault();
-        // Doesn't need to make request, there is an API in async folder for this
-        /*axios
-          .post(`${process.env.REACT_APP_API_ENDPOINT}/qualifications`, {
-            name,
-            description,
-          })
-          .then((response) => {
-            setQualifications([...qualifications, response.data]);
-            setFormVisible(false);
-            setName("");
-            setDescription("");
-          })
-          .catch((error) => {
-            console.error(error);
-          }); */
-    };
 
     const populate = () => {
         if (qualifications.length <= 0) {
@@ -65,7 +35,7 @@ const Qualifications = ({ data }) => { // added props
                     <div className='bg-white'>
                         <div className="row  border bg-light">
                             <div className='icon col'>
-                                <img src={placeholder} className='icon' alt='place-holder' />
+                                <i class="fa fa-certificate" aria-hidden="true"></i>
                             </div>
                             <div className='description col-8'>
                                 <p>{qualification.level} | {qualification.description}</p>
@@ -116,7 +86,7 @@ const Qualifications = ({ data }) => { // added props
                             />
                         </label>
                         <div className="form-buttons">
-                            <button type="submit" onClick={() => submitButton()}>Add</button>
+                            <button type="submit">Add</button>
                             <button type="button" onClick={() => setFormVisible(false)}>
                                 Cancel
                             </button>

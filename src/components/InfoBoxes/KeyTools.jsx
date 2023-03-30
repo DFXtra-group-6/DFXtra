@@ -19,16 +19,14 @@ const KeyTools = ({ data }) => {
         const display = keyTools.map(keyTool => {
 
             return (
-                <>
-                    <container className='row m-1'>
-                        <div className='icon col'>
-                            <img src={placeHolder} className='icon' />
-                        </div>
-                        <div className='description col'>
-                            <p>{keyTool}</p>
-                        </div>
-                    </container>
-                </>
+
+                <div className=' col m-2'>
+                    <div className='icon'>
+                        <img src={placeHolder} className='icon' />
+                        <p className='description'>{keyTool}</p>
+                    </div>
+                </div>
+
             )
         })
         return display;
@@ -37,7 +35,9 @@ const KeyTools = ({ data }) => {
     return (
         <div className="border border-rounded bg-white mb-3">
             <h4>Key Tools</h4>
-            {populate()}
+            <div className="row keyTools">
+                {populate()}
+            </div>
         </div>
     );
 };

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 import ProfileBanner from "../ProfileBanner/profile-banner";
 import AllExperience from "../Experience/AllExperience";
 import NavbarComp from "../NavBar/NavbarComp";
@@ -12,25 +12,27 @@ import KeyTools from "../InfoBoxes/KeyTools";
 import Qualifications from "../InfoBoxes/Qualifications";
 import AllTraining from "../Training/AllTraining";
 import "./profile-page.css";
-import { getDataAsync } from '../../async/profileAPICalls';
+import { getDataAsync } from "../../async/profileAPICalls";
 
 const ProfilePage = () => {
-
     const [data, setData] = useState({ _id: "" });
 
-    const user = JSON.parse(localStorage.getItem('user'));
+    const user = JSON.parse(localStorage.getItem("user"));
 
     const getDataHandler = async () => {
         const getDataResult = await getDataAsync(user);
         const data = getDataResult?.data ? getDataResult.data : {};
         setData(data);
-    }
+    };
 
     useEffect(() => {
         getDataHandler();
-    }, [])
+    }, []);
 
-    const [dataStatus, setDataStatus] = useState({ name: `loading`, message: `Data is loading...` });
+    const [dataStatus, setDataStatus] = useState({
+        name: `loading`,
+        message: `Data is loading...`,
+    });
 
     useEffect(() => {
         const { error } = data;
@@ -44,29 +46,26 @@ const ProfilePage = () => {
 
     return (
         <div className="main-container container-fluid p-0">
-            {data?._id === "" ?
-                <>
-                    {dataStatus.message}
-                </>
-                :
+            {data?._id === "" ? (
+                <>{dataStatus.message}</>
+            ) : (
                 <>
                     <div className="vert-nav">
                         <NavbarComp />
                     </div>
-
                     <div className="container-fluid">
-                        <div className="row">
+                        <div className="row mb-0 main-content">
                             <div className="main-content">
                                 <div className="col mb-3">
                                     <div className="">
-                                        <Greeting />
+                                        <Greeting data={data} />
                                     </div>
                                     <div>
                                         <ProfileBanner data={data} />
                                     </div>
                                 </div>
                                 <div className="col ">
-                                    <div className="row ">
+                                    <div className="row mx-1">
                                         <div className="col-lg-9 ">
                                             <AllExperience data={data} />
                                             <AllTraining data={data} />
@@ -86,7 +85,7 @@ const ProfilePage = () => {
                         </div>
                     </div>
                 </>
-            }
+            )}
         </div>
     );
 };

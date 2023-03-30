@@ -1,42 +1,54 @@
+<<<<<<< HEAD
+import React from "react";
+import placeHolder from "./images/certificate.svg";
+import "./certifications.css";
+
+const Certifications = ({ data }) => {
+  const certifications = data.certifications;
+
+  const populate = () => {
+    const display = certifications.map((certification, index) => {
+      return (
+        <div key={index} className="bg-white">
+          <div className="row border bg-light">
+            <div className="icon col">
+              <img src={placeHolder} alt="icon" className="icon" />
+            </div>
+            <div className="description col">
+              <p>{certification}</p>
+            </div>
+          </div>
+        </div>
+      );
+    });
+    return display;
+  };
+
+  return (
+    <div className="certi-grouped mt-3 border-rounded container bg-white">
+      <h4>Certifications</h4>
+      {populate()}
+    </div>
+  );
+};
+=======
 import React, { useState } from "react";
 import placeHolder from './images/certificate.svg';
+import { submitProfileData } from "../../async/profileAPICalls";
 import './certifications.css';
 
 const Certifications = ({ data }) => {
 
     const certifications = data.certifications;
 
-    const [formVisible, setFormVisible] = useState(false);
-    const [name, setName] = useState("");
-    const [description, setDescription] = useState("");
+    const user = JSON.parse(localStorage.getItem('user'));
 
-    // useEffect(() => {
-    //     axios
-    //         .get(`${process.env.REACT_APP_API_ENDPOINT}/certifications`)
-    //         .then((response) => {
-    //             setCertifications(response.data);
-    //         })
-    //         .catch((error) => {
-    //             console.error(error);
-    //         });
-    // }, []);
+    const [formVisible, setFormVisible] = useState(false);
+    const [description, setDescription] = useState("");
 
     const handleAddCertification = (event) => {
         event.preventDefault();
-        /* axios
-          .post(`${process.env.REACT_APP_API_ENDPOINT}/certifications`, {
-            name,
-            description,
-          })
-          .then((response) => {
-            setCertifications([...certifications, response.data]);
-            setFormVisible(false);
-            setName("");
-            setDescription("");
-          })
-          .catch((error) => {
-            console.error(error);
-          }); */
+        submitProfileData({ data: { certifications: description }, id: user._id })
     };
 
     const populate = () => {
@@ -83,14 +95,6 @@ const Certifications = ({ data }) => {
                     <form className="form" onSubmit={handleAddCertification}>
                         <h2>Add Certification</h2>
                         <label>
-                            Name:
-                            <input
-                                type="text"
-                                value={name}
-                                onChange={(event) => setName(event.target.value)}
-                            />
-                        </label>
-                        <label>
                             Description:
                             <textarea
                                 value={description}
@@ -109,5 +113,6 @@ const Certifications = ({ data }) => {
         </div>
     );
 }
+>>>>>>> 3f4295d93e6c515fd893d9c3cd5f17d2f7272017
 
 export default Certifications;
