@@ -1,16 +1,12 @@
 import React from "react";
 import tick from "./images/tick.svg";
 import cross from "./images/cross.svg";
-<<<<<<< HEAD
 import "./dueDiligence.css";
 import creditImg from "../../assets/credit.png";
 import disclosureImg from "../../assets/disclosure.png";
 import educationImg from "../../assets/education.png";
 import identityImg from "../../assets/identity.png";
 import rightToWorkImg from "../../assets/rightToWork.png";
-=======
-import "./certifications.css";
->>>>>>> 3f4295d93e6c515fd893d9c3cd5f17d2f7272017
 
 const DueDiligence = ({ data }) => {
   const { disclosure, identity, credit, rightToWork, education } =
@@ -22,7 +18,6 @@ const DueDiligence = ({ data }) => {
 
   return (
     <div className="border border-rounded bg-white mb-3">
-<<<<<<< HEAD
       <h4>Due Diligence Checks</h4>
       {/* Just provides true/false at the moment */}
       <div className="row due-row">
@@ -51,29 +46,6 @@ const DueDiligence = ({ data }) => {
         <img src={educationImg} className="col col-img"></img>
         <p className="col">Education</p>
         <img src={image(education)} className="icon col" />
-=======
-      <h4>Due Diligence</h4>
-      {/* Just provides true/false at the moment */}
-      <div className="row m-1">
-        <img src={image(disclosure)} className="icon col" />
-        <p className="col">Disclosure</p>
-      </div>
-      <div className="row m-1">
-        <img src={image(identity)} className="icon col" />
-        <p className="col">Identity</p>
-      </div>
-      <div className="row m-1">
-        <img src={image(credit)} className="icon col" />
-        <p className="col">Credit</p>
-      </div>
-      <div className="row m-1">
-        <img src={image(rightToWork)} className="icon col" />
-        <p className="col">Right to Work</p>
-      </div>
-      <div className="row m-1">
-        <img src={image(education)} className="icon col" />
-        <p className="col">Education</p>
->>>>>>> 3f4295d93e6c515fd893d9c3cd5f17d2f7272017
       </div>
     </div>
   );
