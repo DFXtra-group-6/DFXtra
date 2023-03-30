@@ -35,7 +35,7 @@ const Qualifications = ({ data }) => { // added props
                     <div className='bg-white'>
                         <div className="row  border bg-light">
                             <div className='icon col'>
-                                <img src={placeholder} className='icon' alt='place-holder' />
+                                <i class="fa fa-certificate" aria-hidden="true"></i>
                             </div>
                             <div className='description col-8'>
                                 <p>{qualification.level} | {qualification.description}</p>
