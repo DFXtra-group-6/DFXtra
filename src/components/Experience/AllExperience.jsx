@@ -1,5 +1,3 @@
-// import mockExpData from "../../mockExpData.json";
-// import ExperienceModel from "../utils/Experience.model";
 import Experience from "./Experience";
 import "../Experience/experience.css";
 import { useState } from "react";
@@ -11,19 +9,15 @@ const AllExperience = ({ data }) => {
     const [selectedExperience, setSelectedExperience] = useState(null);
     const [editFormOpen, setEditFormOpen] = useState(false);
 
-    {editFormOpen && (
-      <EditExperienceForm experience={selectedExperience} onClose={() => setEditFormOpen(false)} />
-    )}
+   const handleEditClick = (expItem) => {
+    setSelectedExperience(expItem);
+    setEditFormOpen(true);
+  }; 
 
   const populateExpTable = () => {
     if (experiences?.length > 0) {
       const displayExperience = experiences.map((expItem) => {
-        // const exp = new ExperienceModel(
-        //   expItem.employer,
-        //   expItem.position,
-        //   expItem.dates,
-        //   // dataItem._id
-        // );
+        
         return (
           <>
           <Experience
@@ -32,7 +26,7 @@ const AllExperience = ({ data }) => {
             position={expItem.position}
             dates={expItem.dates}
             skills={expItem.skills}
-            onEdit={() => setSelectedExperience(expItem)}
+            onEdit={() => handleEditClick(expItem)}
           />
           
           </>
@@ -46,8 +40,12 @@ const AllExperience = ({ data }) => {
   return (
   
     <div className="row  col order p-4 experience-table">
-     
+     <div className="exp-heading">
       <h3>Experience</h3>
+      <i class="fa fa-plus-circle" aria-hidden="true" onClick={() => setEditFormOpen(true)}></i>
+    </div>
+
+
       <p>View the work experience of the engineer</p>
       <div className="exp my-3">
         <h6 className="exp-head1">EMPLOYER</h6>
@@ -55,15 +53,12 @@ const AllExperience = ({ data }) => {
         <h6 className="exp-head3">DATES</h6>
       </div>
 
-            <h3>Experience</h3>
-            <p>View the work experience of the engineer</p>
-            <div className="exp my-3">
-                <h6 className="exp-head1">EMPLOYER</h6>
-                <h6 className="exp-head2">POSITION</h6>
-                <h6 className="exp-head3">DATES</h6>
-            </div>
+      {populateExpTable()}
 
-            {populateExpTable()}
+      {editFormOpen && (
+      <EditExperienceForm experience={selectedExperience} onClose={() => setEditFormOpen(false)} />
+    )}
+      
         </div>
     );
 };
