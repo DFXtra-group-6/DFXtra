@@ -3,9 +3,44 @@ import placeHolder from './images/certificate.svg';
 import './certifications.css';
 
 const Certifications = ({ data }) => {
+
     const certifications = data.certifications;
 
-    const populate = () => {
+function Certifications() {
+  const [formVisible, setFormVisible] = useState(false);
+  const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
+
+  useEffect(() => {
+    axios
+      .get(`${process.env.REACT_APP_API_ENDPOINT}/certifications`)
+      .then((response) => {
+        setCertifications(response.data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
+
+  const handleAddCertification = (event) => {
+    event.preventDefault();
+    /* axios
+      .post(`${process.env.REACT_APP_API_ENDPOINT}/certifications`, {
+        name,
+        description,
+      })
+      .then((response) => {
+        setCertifications([...certifications, response.data]);
+        setFormVisible(false);
+        setName("");
+        setDescription("");
+      })
+      .catch((error) => {
+        console.error(error);
+      }); */
+  };
+  
+  const populate = () => {
         if (certifications.length <= 0) {
             return (
                 <>
@@ -35,12 +70,45 @@ const Certifications = ({ data }) => {
         return display;
     }
 
-    return (
-        <div className="certi-grouped mt-3 border-rounded container bg-white">
-            <h4>Certifications</h4>
-            {populate()}
+  return (
+    <div>
+      <h1>Certifications</h1>
+      <div className="certifications-container">
+        {populate()}
+        <button className="add-certification-button">
+          + Add Certification
+        </button>
+      </div>
+      {formVisible && (
+        <div className="overlay">
+          <form className="form" onSubmit={handleAddCertification}>
+            <h2>Add Certification</h2>
+            <label>
+              Name:
+              <input
+                type="text"
+                value={name}
+                onChange={(event) => setName(event.target.value)}
+              />
+            </label>
+            <label>
+              Description:
+              <textarea
+                value={description}
+                onChange={(event) => setDescription(event.target.value)}
+              />
+            </label>
+            <div className="form-buttons">
+              <button type="submit">Add</button>
+              <button type="button" onClick={() => setFormVisible(false)}>
+                Cancel
+              </button>
+            </div>
+          </form>
         </div>
-    );
-};
+      )}
+    </div>
+  );
+}
 
 export default Certifications;

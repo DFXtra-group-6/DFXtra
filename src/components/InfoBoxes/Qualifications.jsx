@@ -1,13 +1,45 @@
-import React from 'react'
-import placeholder from "../../assets/qualification-icon.png";
-import './certifications.css';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
-const Qualifications = ({ data }) => {
+function Qualifications({data}) { // added props
+  const [formVisible, setFormVisible] = useState(false);
+  const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
+  
+  const qualifications = data.qualifications;
 
-    const handleEditButton = () => { }
+// You should be doing a GET request here, the data has already been requests on ProfilePage
+  /*useEffect(() => {
+    axios
+      .get(`${process.env.REACT_APP_API_ENDPOINT}/qualifications`)
+      .then((response) => {
+        setQualifications(response.data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);*/
 
-    const qualifications = data;
-    const populate = () => {
+  const handleAddQualification = (event) => {
+    event.preventDefault();
+    // Doesn't need to make request, there is an API in async folder for this
+    /*axios
+      .post(`${process.env.REACT_APP_API_ENDPOINT}/qualifications`, {
+        name,
+        description,
+      })
+      .then((response) => {
+        setQualifications([...qualifications, response.data]);
+        setFormVisible(false);
+        setName("");
+        setDescription("");
+      })
+      .catch((error) => {
+        console.error(error);
+      }); */
+  };
+  
+  const populate = () => {
 
         const display = qualifications.map(qualification => {
 
@@ -30,19 +62,46 @@ const Qualifications = ({ data }) => {
         return display;
     }
 
-    return (
-        <div className="certi-grouped mt-3 border-rounded container bg-white">
-            <div className="row space-between">
-                <div className="col">
-                    <h4>Qualifications</h4>
-                </div>
-                <div className="col">
-                    <i className="fa fa-light fa-pencil" onClick={handleEditButton}></i>
-                </div>
+  return (
+    <div>
+      <h1>Qualifications</h1>
+      <div className="qualifications-container">
+        {populate()}
+        <button className="add-qualification-button">
+          + Add Qualification
+        </button>
+      </div>
+      {formVisible && (
+        <div className="overlay">
+          <form className="form" onSubmit={handleAddQualification}>
+            <h2>Add Qualification</h2>
+            <label>
+              Name:
+              <input
+                type="text"
+                value={name}
+                onChange={(event) => setName(event.target.value)}
+              />
+            </label>
+            <label>
+              Description:
+              <textarea
+                value={description}
+                onChange={(event) => setDescription(event.target.value)}
+              />
+            </label>
+            <div className="form-buttons">
+              <button type="submit">Add</button>
+              <button type="button" onClick={() => setFormVisible(false)}>
+                Cancel
+              </button>
             </div>
+          </form>
         </div>
-    )
+      )}
+    </div>
+  );
 
 }
 
-export default Qualifications
+export default Qualifications;
