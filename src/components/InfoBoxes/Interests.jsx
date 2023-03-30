@@ -1,6 +1,27 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { submitProfileData } from "../../async/profileAPICalls";
+import "./certifications.css";
+
 const Interests = ({ data }) => {
   const [isFormVisible, setIsFormVisible] = useState(false);
+
+  const getInitialState = () => {
+    const value = "Sport";
+    return value;
+  };
+
+  const [type, setType] = useState(getInitialState);
+  const [name, setName] = useState();
+
+  const user = JSON.parse(localStorage.getItem("user"));
+
+  const handleType = (e) => {
+    setType(e.target.value);
+  };
+
+  const handleChange = (e) => {
+    setName(e.target.value);
+  };
 
   const handleEditButton = () => {
     console.log(`clicked edit`);
@@ -13,11 +34,16 @@ const Interests = ({ data }) => {
     console.log(isFormVisible);
   };
 
-  // console.dir(data.interests);
+  const submitButton = () => {
+    submitProfileData({
+      data: { interests: { name: name, type: type } },
+      id: user._id,
+    });
+  };
 
-  // const interests = data.interests;
-  const emptyArray = [];
-  const interests = emptyArray;
+  const interests = data.interests;
+  //emptyArray = [];
+  // const interests = emptyArray;
 
   const populate = () => {
     if (interests.length <= 0) {
@@ -31,14 +57,12 @@ const Interests = ({ data }) => {
     }
     const display = interests.map((interest) => {
       return (
-        <>
-          <div className="row m-1">
-            <p>
-              <strong>{interest.type}</strong>
-            </p>
-            <p>{interest.name}</p>
-          </div>
-        </>
+        // <div className="m-1 bg-light each-interest p-1">
+        <div className="  col-xs col-sm-6 ">
+          <strong>{interest.type}</strong>
+
+          <p>{interest.name}</p>
+        </div>
       );
     });
     return display;
@@ -53,16 +77,16 @@ const Interests = ({ data }) => {
         </div>
         {isFormVisible ? (
           <div className="bg-light container">
-            <form className="form-control">
+            <form className="form-control" onSubmit={submitButton}>
               <h4 className="text-center ">Add Interests</h4>
               <div className="form-group">
                 <label className="m-1 form-label">Category:</label>
-                <select className="p-1">
-                  <option value="sport">Sport</option>
-                  <option value="travel">Travel</option>
-                  <option value="series">Series</option>
-                  <option value="band">Band</option>
-                  <option value="hobby">Hobby</option>
+                <select onChange={handleType} value={type} className="p-1">
+                  <option value="Sport">Sport</option>
+                  <option value="Travel">Travel</option>
+                  <option value="Series">Series</option>
+                  <option value="Band">Band</option>
+                  <option value="Hobby">Hobby</option>
                 </select>
               </div>
               <div className="form-group">
@@ -70,25 +94,37 @@ const Interests = ({ data }) => {
                 <input
                   type="text"
                   className="l"
+                  value={name}
+                  onChange={handleChange}
                   placeholder="Enter name . . ."
                 />
               </div>
               <div className="d-flex justify-content-evenly bg-light">
                 <div>
                   <i
-                    class="fa-sharp fa-solid fa-circle-xmark fa-2xl"
+                    className="fa-sharp fa-solid fa-circle-xmark fa-2xl"
                     onClick={handleCancelButton}
                   ></i>
                 </div>
 
                 <div>
-                  <i class="fa-solid fa-circle-plus fa-2xl"></i>
+                  <i
+                    className="fa-solid fa-circle-plus fa-2xl"
+                    onClick={submitButton}
+                  ></i>
                 </div>
               </div>
             </form>
           </div>
         ) : (
-          <div>{populate()} </div>
+          // <div>
+          //   <div className="d-flex flex-wrap justify-content-around">
+          //     {populate()}{" "}
+          //   </div>
+          // </div>
+          <div className="container-fluid">
+            <div className="row ">{populate()} </div>
+          </div>
         )}
       </div>
     </>

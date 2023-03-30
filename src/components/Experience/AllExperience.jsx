@@ -1,29 +1,43 @@
-import mockExpData from "../../mockExpData.json";
-import ExperienceModel from "../utils/Experience.model";
+// import mockExpData from "../../mockExpData.json";
+// import ExperienceModel from "../utils/Experience.model";
 import Experience from "./Experience";
 import "../Experience/experience.css";
+import { useState } from "react";
+import EditExperienceForm from "./EditExpForm";
 
-const AllExperience = () => {
-  const data = mockExpData;
+const AllExperience = ({ data }) => {
+  // const data = mockExpData;
+  const experiences = data.experience;
+  const [selectedExperience, setSelectedExperience] = useState(null);
+  const [editFormOpen, setEditFormOpen] = useState(false);
+
+  editFormOpen && (
+    <EditExperienceForm
+      experience={selectedExperience}
+      onClose={() => setEditFormOpen(false)}
+    />
+  );
 
   const populateExpTable = () => {
-    if (data?.length > 0) {
-      const displayExperience = data.map((dataItem) => {
-        const exp = new ExperienceModel(
-          dataItem.employer,
-          dataItem.position,
-          dataItem.startDate,
-          dataItem.endDate,
-          dataItem.id
-        );
+    if (experiences?.length > 0) {
+      const displayExperience = experiences.map((expItem) => {
+        // const exp = new ExperienceModel(
+        //   expItem.employer,
+        //   expItem.position,
+        //   expItem.dates,
+        //   // dataItem._id
+        // );
         return (
-          <Experience
-            key={exp.id}
-            employer={exp.employer}
-            position={exp.position}
-            startDate={exp.startDate}
-            endDate={exp.endDate}
-          />
+          <>
+            <Experience
+              // key={_id}
+              employer={expItem.employer}
+              position={expItem.position}
+              dates={expItem.dates}
+              skills={expItem.skills}
+              onEdit={() => setSelectedExperience(expItem)}
+            />
+          </>
         );
       });
 
@@ -32,7 +46,6 @@ const AllExperience = () => {
   };
 
   return (
-    // <div className="row mx-3 col-md-8 border p-4 mt-3 experience-table">
     <div className="row  col order p-4 experience-table">
       <h3>Experience</h3>
       <p>View the work experience of the engineer</p>

@@ -1,19 +1,31 @@
 import "../Training/training.css";
-import PropTypes from "prop-types";
-import TrainingModel from "../utils/Training.model";
+import { useState } from "react";
+// import PropTypes from "prop-types";
+// import TrainingModel from "../utils/Training.model";
 
 const Training = (userTraining) => {
   const { challengeName, challenge, result } = userTraining;
+  const [open, setOPen] = useState(false);
+    
+    const toggle = () => {
+        setOPen(!open);
+    };
 
   return (
+    <>
     <div className="training-box col-md-12 p-2">
       <div className="challengeName">
         <td>
           {challengeName}
           <br></br>
-          <span className="learn-more">Learn More</span>
+          <div>
+                <button onClick={toggle} className="expand-btn">Learn More</button>   
+          </div> 
+
         </td>
       </div>
+
+
       <div className=" challenge mt-2">
         <td>{challenge}</td>
       </div>
@@ -23,11 +35,22 @@ const Training = (userTraining) => {
         </td>
       </div>
     </div>
+
+      <div className="skills-box">
+              {open && (
+                  
+                      <div className="toggle">
+                          <div>There were no plane crashes!</div>
+                      </div>  
+                  
+              )}
+      </div>
+   </>
   );
 };
 
-Training.propTypes = {
-  userTraining: PropTypes.instanceOf(TrainingModel),
-};
+// Training.propTypes = {
+//   userTraining: PropTypes.instanceOf(TrainingModel),
+// };
 
 export default Training;
