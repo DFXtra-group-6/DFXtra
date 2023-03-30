@@ -6,7 +6,6 @@ const NavbarComp = () => {
     localStorage.removeItem(`user`);
   }
 
-
   return (
     <>
       <nav className="navbar flex-column navbar-expand-lg navbar-dark custom-bg">
@@ -58,6 +57,7 @@ const NavbarComp = () => {
       </nav>
     </>
   );
+
 };
 
 export default NavbarComp;
