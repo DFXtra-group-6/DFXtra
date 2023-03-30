@@ -15,79 +15,79 @@ import "./profile-page.css";
 import { getDataAsync } from "../../async/profileAPICalls";
 
 const ProfilePage = () => {
-  const [data, setData] = useState({ _id: "" });
+    const [data, setData] = useState({ _id: "" });
 
-  const user = JSON.parse(localStorage.getItem("user"));
+    const user = JSON.parse(localStorage.getItem("user"));
 
-  const getDataHandler = async () => {
-    const getDataResult = await getDataAsync(user);
-    const data = getDataResult?.data ? getDataResult.data : {};
-    setData(data);
-  };
+    const getDataHandler = async () => {
+        const getDataResult = await getDataAsync(user);
+        const data = getDataResult?.data ? getDataResult.data : {};
+        setData(data);
+    };
 
-  useEffect(() => {
-    getDataHandler();
-  }, []);
+    useEffect(() => {
+        getDataHandler();
+    }, []);
 
-  const [dataStatus, setDataStatus] = useState({
-    name: `loading`,
-    message: `Data is loading...`,
-  });
+    const [dataStatus, setDataStatus] = useState({
+        name: `loading`,
+        message: `Data is loading...`,
+    });
 
-  useEffect(() => {
-    const { error } = data;
+    useEffect(() => {
+        const { error } = data;
 
-    if (error?.length) {
-      return setDataStatus({ name: `error`, message: error });
-    }
+        if (error?.length) {
+            return setDataStatus({ name: `error`, message: error });
+        }
 
-    setDataStatus({ name: `loading`, message: `Data is loading...` });
-  }, [data]);
+        setDataStatus({ name: `loading`, message: `Data is loading...` });
+    }, [data]);
 
-  return (
-    <div className="main-container container-fluid p-0">
-      {data?._id === "" ? (
-        <>{dataStatus.message}</>
-      ) : (
-        <>
-          <div className="vert-nav">
-            <NavbarComp />
-          </div>
-          <div className="container-fluid">
-            <div className="row mb-0 main-content">
-              <div className="main-content">
-                <div className="col mb-3">
-                  <div className="">
-                    <Greeting />
-                  </div>
-                  <div>
-                    <ProfileBanner data={data} />
-                  </div>
-                </div>
-                <div className="col ">
-                  <div className="row mx-1">
-                    <div className="col-lg-9 ">
-                      <AllExperience data={data} />
-                      <AllTraining data={data} />
-                      <FeedbackComponent data={data.feedback} />
+    return (
+        <div className="main-container container-fluid p-0">
+            {data?._id === "" ? (
+                <>{dataStatus.message}</>
+            ) : (
+                <>
+                    <div className="vert-nav">
+                        <NavbarComp />
                     </div>
-                    <div className=" col-lg-3">
-                      <PersonalityType data={data} />
-                      <Qualifications data={data.qualifications} />
-                      <Certifications data={data} />
-                      <DueDiligence data={data} />
-                      <Interests data={data} />
-                      <KeyTools data={data} />
+                    <div className="container-fluid">
+                        <div className="row mb-0 main-content">
+                            <div className="main-content">
+                                <div className="col mb-3">
+                                    <div className="">
+                                        <Greeting data={data} />
+                                    </div>
+                                    <div>
+                                        <ProfileBanner data={data} />
+                                    </div>
+                                </div>
+                                <div className="col ">
+                                    <div className="row mx-1">
+                                        <div className="col-lg-9 ">
+                                            <AllExperience data={data} />
+                                            <AllTraining data={data} />
+                                            <FeedbackComponent data={data.feedback} />
+                                        </div>
+                                        <div className=" col-lg-3">
+                                            <PersonalityType data={data} />
+                                            <Qualifications data={data.qualifications} />
+                                            <Certifications data={data} />
+                                            <DueDiligence data={data} />
+                                            <Interests data={data} />
+                                            <KeyTools data={data} />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </>
-      )}
-    </div>
-  );
+                </>
+            )}
+        </div>
+    );
 };
 
 export default ProfilePage;

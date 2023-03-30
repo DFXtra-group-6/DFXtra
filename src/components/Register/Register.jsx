@@ -78,6 +78,19 @@ const Register = () => {
                         <h2>Create a new account</h2>
                         <form onSubmit={register}>
                             <div className="form-group">
+                                <label for="exampleInputEmail1">Name</label>
+                                <input
+                                    type="text"
+                                    name="name"
+                                    value={user.name}
+                                    onChange={handleChange}
+                                    className="form-control"
+                                    id="exampleInputEmail1"
+                                    aria-describedby="emailHelp"
+                                    placeholder="Enter name"
+                                />
+                            </div>
+                            <div className="form-group">
                                 <label for="exampleInputEmail1">Email address*</label>
                                 <input
                                     type="email"
