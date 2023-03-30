@@ -6,6 +6,15 @@ const Certifications = ({ data }) => {
     const certifications = data.certifications;
 
     const populate = () => {
+        if (certifications.length <= 0) {
+            return (
+                <>
+                    <div className="text-center border m-4 bg-light">
+                        "No certifications added"
+                    </div>
+                </>
+            );
+        }
         const display = certifications.map((certification, index) => {
             return (
                 <div key={index} className="bg-white">
