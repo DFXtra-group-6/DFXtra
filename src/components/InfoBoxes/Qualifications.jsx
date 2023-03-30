@@ -1,12 +1,16 @@
 import React, { useState } from "react";
+import { submitProfileData } from "../../async/profileAPICalls";
 import placeholder from './images/certificate.svg';
 
 const Qualifications = ({ data }) => { // added props
     const [formVisible, setFormVisible] = useState(false);
-    const [name, setName] = useState("");
+    const [level, setLevel] = useState("");
+    const [institution, setInstitution] = useState("");
     const [description, setDescription] = useState("");
 
-    const qualifications = data.qualifications;
+    const qualifications = data;
+
+    const user = JSON.parse(localStorage.getItem('user'));
 
     // You should not be doing a GET request here, the data has already been requests on ProfilePage
     /*useEffect(() => {
@@ -19,6 +23,10 @@ const Qualifications = ({ data }) => { // added props
           console.error(error);
         });
     }, []);*/
+
+    const submitButton = () => {
+        submitProfileData({ data: { qualifications: { level: level, institution: institution, description: description } }, id: user._id });
+    }
 
     const handleAddQualification = (event) => {
         event.preventDefault();
@@ -40,6 +48,15 @@ const Qualifications = ({ data }) => { // added props
     };
 
     const populate = () => {
+        if (qualifications.length <= 0) {
+            return (
+                <>
+                    <div className="text-center border m-4 bg-light">
+                        "No qualifications added"
+                    </div>
+                </>
+            );
+        }
 
         const display = qualifications.map(qualification => {
 
@@ -67,20 +84,28 @@ const Qualifications = ({ data }) => { // added props
             <h1>Qualifications</h1>
             <div className="qualifications-container">
                 {populate()}
-                <button className="add-qualification-button">
+                <button className="add-qualification-button" onClick={() => setFormVisible(!formVisible)} >
                     + Add Qualification
                 </button>
             </div>
             {formVisible && (
                 <div className="overlay">
-                    <form className="form" onSubmit={handleAddQualification}>
+                    <form className="form" onSubmit={submitButton}>
                         <h2>Add Qualification</h2>
                         <label>
-                            Name:
+                            Level:
                             <input
                                 type="text"
-                                value={name}
-                                onChange={(event) => setName(event.target.value)}
+                                value={level}
+                                onChange={(event) => setLevel(event.target.value)}
+                            />
+                        </label>
+                        <label>
+                            Institution:
+                            <input
+                                type="text"
+                                value={institution}
+                                onChange={(event) => setInstitution(event.target.value)}
                             />
                         </label>
                         <label>
@@ -91,7 +116,7 @@ const Qualifications = ({ data }) => { // added props
                             />
                         </label>
                         <div className="form-buttons">
-                            <button type="submit">Add</button>
+                            <button type="submit" onClick={() => submitButton()}>Add</button>
                             <button type="button" onClick={() => setFormVisible(false)}>
                                 Cancel
                             </button>

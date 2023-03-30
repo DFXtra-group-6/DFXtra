@@ -74,7 +74,7 @@ const Certifications = ({ data }) => {
             <h1>Certifications</h1>
             <div className="certifications-container">
                 {populate()}
-                <button className="add-certification-button">
+                <button className="add-certification-button" onClick={() => setFormVisible(!formVisible)}>
                     + Add Certification
                 </button>
             </div>
