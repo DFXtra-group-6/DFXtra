@@ -11,6 +11,7 @@ import KeyTools from "../InfoBoxes/KeyTools";
 // import Qualifications from "../InfoBoxes/Qualifications";
 import AllTraining from "../Training/AllTraining";
 import "./profile-page.css";
+import Qualifications from "../InfoBoxes/Qualifications";
 
 const ProfilePage = () => {
   return (
@@ -39,6 +40,7 @@ const ProfilePage = () => {
                 <div className=" col-lg-3">
                   <PersonalityType />
                   <Certifications />
+                  <Qualifications />
                   <DueDiligence />
                   <Interests />
                   <KeyTools />

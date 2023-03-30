@@ -56,7 +56,7 @@ export default function PersonalityType() {
         onClick={() => setFormVisible(true)}
       >
         {personality === null ? (
-          "Click to Add Personality Type"
+          "Personality Type"
         ) : (
           <div
             style={{
