@@ -12,6 +12,7 @@ const Interests = ({ data }) => {
 
     const [type, setType] = useState(getInitialState);
     const [name, setName] = useState();
+
     const user = JSON.parse(localStorage.getItem('user'));
 
     const handleType = (e) => {
