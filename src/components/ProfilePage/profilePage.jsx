@@ -9,7 +9,7 @@ import DueDiligence from "../InfoBoxes/DueDiligence";
 import Certifications from "../InfoBoxes/Certifications";
 import Interests from "../InfoBoxes/Interests";
 import KeyTools from "../InfoBoxes/KeyTools";
-// import Qualifications from "../InfoBoxes/Qualifications";
+import Qualifications from "../InfoBoxes/Qualifications";
 import AllTraining from "../Training/AllTraining";
 import "./profile-page.css";
 import { getDataAsync } from '../../async/profileAPICalls';
@@ -74,6 +74,7 @@ const ProfilePage = () => {
                                         </div>
                                         <div className=" col-lg-3">
                                             <PersonalityType data={data} />
+                                            <Qualifications data={data} />
                                             <Certifications data={data} />
                                             <DueDiligence data={data} />
                                             <Interests data={data} />
