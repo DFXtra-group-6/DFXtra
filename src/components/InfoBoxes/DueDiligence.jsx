@@ -5,7 +5,7 @@ import './certifications.css';
 
 const DueDiligence = ({ data }) => {
 
-    const { disclosure, identity, credit, rightToWork, education } = data.dueDiligence;
+    const { disclosure, identity, credit, rightToWork, education } = data.dueDiligenceChecks;
 
     function image(value) { return value ? tick : cross }
 
