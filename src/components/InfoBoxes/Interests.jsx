@@ -18,10 +18,6 @@ const Interests = ({ data }) => {
         setType(e.target.value);
     };
 
-    useEffect(() => {
-
-    }, [data])
-
     const handleChange = (e) => {
         setName(e.target.value);
     };
