@@ -1,9 +1,29 @@
-
+/* 
 .blue {
     color: blue;
+} */
+
+.expand-btn {
+    background-color: white;
+    border: none;
+    color: blue;
+    padding: 0px;
+    /* text-align: left; */
+    text-decoration: none;
+    /* display: inline-block; */
+    font-size: 16px;
+    /* margin: 0px; */
+    cursor: pointer;
+    outline: none;
 }
 
-img {
+.toggle{
+    border: 1px rgb(211, 211, 211) solid; 
+    padding: 15px;
+ 
+}
+
+.exp-img {
     width: 50px;
     height: 50px;
     border-radius: 50px;
@@ -61,9 +81,3 @@ img {
     grid-column: 7/10;
 }
 
-.blue {
-    color: blue;
-    display: grid;
-    grid-column: 11/12;
-    
-}

@@ -1,39 +1,15 @@
-// import React from 'react'
-
-// const Qualifications = ({ qualifications }) => {
-//     return (
-//         <div>
-//             {qualifications.map(qualification => {
-//                 return (
-//                     <div className='col-6'>
-//                         <div className='icon col-2'>
-//                             <img src='./certificate.svg' className='icon' alt='place-holder' />
-//                         </div>
-//                         <div className='description col-10'>
-//                             <p>{qualification.name} | {qualification.description}</p>
-//                             <p>{qualification.institution}</p>
-//                         </div>
-//                     </div>
-//                 )
-//             })
-
-//             }
-//         </div>
-//     )
-// }
-
-// export default Qualifications
-
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-function Qualifications() {
-  const [qualifications, setQualifications] = useState([]);
+function Qualifications({data}) { // added props
   const [formVisible, setFormVisible] = useState(false);
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
+  
+  const qualifications = data.qualifications;
 
-  useEffect(() => {
+// You should be doing a GET request here, the data has already been requests on ProfilePage
+  /*useEffect(() => {
     axios
       .get(`${process.env.REACT_APP_API_ENDPOINT}/qualifications`)
       .then((response) => {
@@ -42,11 +18,12 @@ function Qualifications() {
       .catch((error) => {
         console.error(error);
       });
-  }, []);
+  }, []);*/
 
   const handleAddQualification = (event) => {
     event.preventDefault();
-    axios
+    // Doesn't need to make request, there is an API in async folder for this
+    /*axios
       .post(`${process.env.REACT_APP_API_ENDPOINT}/qualifications`, {
         name,
         description,
@@ -59,18 +36,37 @@ function Qualifications() {
       })
       .catch((error) => {
         console.error(error);
-      });
+      }); */
   };
+  
+  const populate = () => {
+
+        const display = qualifications.map(qualification => {
+
+            return (
+                <div>
+                    <div className='bg-white'>
+                        <div className="row  border bg-light">
+                            <div className='icon col'>
+                                <img src={placeholder} className='icon' alt='place-holder' />
+                            </div>
+                            <div className='description col-8'>
+                                <p>{qualification.level} | {qualification.description}</p>
+                                <p>{qualification.institution}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )
+        })
+        return display;
+    }
 
   return (
     <div>
       <h1>Qualifications</h1>
       <div className="qualifications-container">
-        {qualifications.map((qualification, index) => (
-          <button key={index} className="qualification-button">
-            {qualification.name}
-          </button>
-        ))}
+        {populate()}
         <button className="add-qualification-button">
           + Add Qualification
         </button>
@@ -105,6 +101,7 @@ function Qualifications() {
       )}
     </div>
   );
+
 }
 
 export default Qualifications;
