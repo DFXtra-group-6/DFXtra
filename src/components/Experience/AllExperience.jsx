@@ -11,12 +11,19 @@ const AllExperience = ({ data }) => {
   const [selectedExperience, setSelectedExperience] = useState(null);
   const [editFormOpen, setEditFormOpen] = useState(false);
 
+  // {
+  //   editFormOpen && (
+  //     <EditExperienceForm experience={selectedExperience} onClose={() => setEditFormOpen(false)} />
+  //   )
+  // }
+
   editFormOpen && (
     <EditExperienceForm
       experience={selectedExperience}
       onClose={() => setEditFormOpen(false)}
     />
   );
+
 
   const populateExpTable = () => {
     if (experiences?.length > 0) {
@@ -37,6 +44,7 @@ const AllExperience = ({ data }) => {
               skills={expItem.skills}
               onEdit={() => setSelectedExperience(expItem)}
             />
+
           </>
         );
       });
