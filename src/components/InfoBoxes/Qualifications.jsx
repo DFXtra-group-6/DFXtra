@@ -11,6 +11,7 @@ const Qualifications = ({ data }) => { // added props
     const qualifications = data;
 
     const user = JSON.parse(localStorage.getItem('user'));
+    console.dir(user)
 
     const submitButton = () => {
         submitProfileData({ data: { qualifications: { level: level, institution: institution, description: description } }, id: user._id });

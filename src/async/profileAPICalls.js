@@ -16,6 +16,7 @@ export const getDataAsync = async (user) => {
 export const submitProfileData = async (data) => {
     //const user = localStorage.getItem('user');
     try {
+        console.dir(data)
         const res = await axios
             .put(`${process.env.REACT_APP_URL}/profile/${data._id}`, data)
     }

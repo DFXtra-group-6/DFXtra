@@ -1,42 +1,20 @@
 import React, { useState } from "react";
 import placeHolder from './images/certificate.svg';
+import { submitProfileData } from "../../async/profileAPICalls";
 import './certifications.css';
 
 const Certifications = ({ data }) => {
 
     const certifications = data.certifications;
 
-    const [formVisible, setFormVisible] = useState(false);
-    const [name, setName] = useState("");
-    const [description, setDescription] = useState("");
+    const user = JSON.parse(localStorage.getItem('user'));
 
-    // useEffect(() => {
-    //     axios
-    //         .get(`${process.env.REACT_APP_API_ENDPOINT}/certifications`)
-    //         .then((response) => {
-    //             setCertifications(response.data);
-    //         })
-    //         .catch((error) => {
-    //             console.error(error);
-    //         });
-    // }, []);
+    const [formVisible, setFormVisible] = useState(false);
+    const [description, setDescription] = useState("");
 
     const handleAddCertification = (event) => {
         event.preventDefault();
-        /* axios
-          .post(`${process.env.REACT_APP_API_ENDPOINT}/certifications`, {
-            name,
-            description,
-          })
-          .then((response) => {
-            setCertifications([...certifications, response.data]);
-            setFormVisible(false);
-            setName("");
-            setDescription("");
-          })
-          .catch((error) => {
-            console.error(error);
-          }); */
+        submitProfileData({ data: { certifications: description }, id: user._id })
     };
 
     const populate = () => {
@@ -82,14 +60,6 @@ const Certifications = ({ data }) => {
                 <div className="overlay">
                     <form className="form" onSubmit={handleAddCertification}>
                         <h2>Add Certification</h2>
-                        <label>
-                            Name:
-                            <input
-                                type="text"
-                                value={name}
-                                onChange={(event) => setName(event.target.value)}
-                            />
-                        </label>
                         <label>
                             Description:
                             <textarea
