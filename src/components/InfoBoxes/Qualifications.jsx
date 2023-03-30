@@ -1,13 +1,32 @@
-import React from 'react'
-import placeholder from "../../assets/qualification-icon.png";
-import './certifications.css';
+import React, { useState } from "react";
+import { submitProfileData } from "../../async/profileAPICalls";
+import placeholder from './images/certificate.svg';
 
-const Qualifications = ({ data }) => {
-
-    const handleEditButton = () => { }
+const Qualifications = ({ data }) => { // added props
+    const [formVisible, setFormVisible] = useState(false);
+    const [level, setLevel] = useState("");
+    const [institution, setInstitution] = useState("");
+    const [description, setDescription] = useState("");
 
     const qualifications = data;
+
+    const user = JSON.parse(localStorage.getItem('user'));
+    console.dir(user)
+
+    const submitButton = () => {
+        submitProfileData({ data: { qualifications: { level: level, institution: institution, description: description } }, id: user._id });
+    }
+
     const populate = () => {
+        if (qualifications.length <= 0) {
+            return (
+                <>
+                    <div className="text-center border m-4 bg-light">
+                        "No qualifications added"
+                    </div>
+                </>
+            );
+        }
 
         const display = qualifications.map(qualification => {
 
@@ -31,19 +50,53 @@ const Qualifications = ({ data }) => {
     }
 
     return (
-        <div className="certi-grouped mt-3 border-rounded container bg-white">
-            <div className="row space-between">
-                <div className="col">
-                    <h4>Qualifications</h4>
-                </div>
-                <div className="col">
-                    <i className="fa fa-light fa-pencil" onClick={handleEditButton}></i>
-                </div>
+        <div>
+            <h1>Qualifications</h1>
+            <div className="qualifications-container">
+                {populate()}
+                <button className="add-qualification-button" onClick={() => setFormVisible(!formVisible)} >
+                    + Add Qualification
+                </button>
             </div>
-            {populate()}
+            {formVisible && (
+                <div className="overlay">
+                    <form className="form" onSubmit={submitButton}>
+                        <h2>Add Qualification</h2>
+                        <label>
+                            Level:
+                            <input
+                                type="text"
+                                value={level}
+                                onChange={(event) => setLevel(event.target.value)}
+                            />
+                        </label>
+                        <label>
+                            Institution:
+                            <input
+                                type="text"
+                                value={institution}
+                                onChange={(event) => setInstitution(event.target.value)}
+                            />
+                        </label>
+                        <label>
+                            Description:
+                            <textarea
+                                value={description}
+                                onChange={(event) => setDescription(event.target.value)}
+                            />
+                        </label>
+                        <div className="form-buttons">
+                            <button type="submit">Add</button>
+                            <button type="button" onClick={() => setFormVisible(false)}>
+                                Cancel
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            )}
         </div>
     )
 
 }
 
-export default Qualifications
+export default Qualifications;

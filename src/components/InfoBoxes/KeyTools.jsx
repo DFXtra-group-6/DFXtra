@@ -7,6 +7,15 @@ const KeyTools = ({ data }) => {
     const keyTools = data.keyTools;
 
     const populate = () => {
+        if (keyTools.length <= 0) {
+            return (
+                <>
+                    <div className="text-center border m-4 bg-light">
+                        "No key tools added"
+                    </div>
+                </>
+            );
+        }
         const display = keyTools.map(keyTool => {
 
             return (

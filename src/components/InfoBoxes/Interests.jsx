@@ -12,15 +12,12 @@ const Interests = ({ data }) => {
 
     const [type, setType] = useState(getInitialState);
     const [name, setName] = useState();
+
     const user = JSON.parse(localStorage.getItem('user'));
 
     const handleType = (e) => {
         setType(e.target.value);
     };
-
-    useEffect(() => {
-
-    }, [data])
 
     const handleChange = (e) => {
         setName(e.target.value);
@@ -40,8 +37,6 @@ const Interests = ({ data }) => {
     const submitButton = () => {
         submitProfileData({ data: { interests: { name: name, type: type } }, id: user._id });
     }
-
-    // console.dir(data.interests);
 
     const interests = data.interests;
     //emptyArray = [];
