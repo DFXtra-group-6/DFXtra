@@ -27,10 +27,11 @@ const Register = () => {
         e.preventDefault();
 
         const res = await registerUser(user);
+        console.dir(res)
 
         if (res.user) {
             alert(res.message);
-            setUser({ email: ``, password: ``, name: ``, handle: `` }); // Resets the inputs
+            setUser({ email: "", password: "" }); // Resets the inputs
             navigate(`/`);
             return;
         }
@@ -57,7 +58,7 @@ const Register = () => {
         <>
             <div class="">
                 <nav class="navbar navbar-light bg-light ">
-                    <a class="navbar-brand" href="#">
+                    <a class="navbar-brand" href="/">
                         <img
                             src={bluelogo}
                             width="40"
