@@ -1,36 +1,16 @@
-div.row {
+.container {
   background-color: white;
-}
-div .Personality-user {
-  float: left !important;
-  display: block !important;
-  color: rgb(80, 79, 79);
-  font-size: 10px;
-  margin-top: 5px;
-}
-
-.Personality-description {
-  display: inline;
-  margin-left: -180px;
-
-  font-size: 12px;
-  color: #00b7ff;
+  min-height: 150px;
+  word-wrap: break-word;
+  box-sizing: content-box;
+  border-radius: 10px;
+  border: 1px solid #dee2e6;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
 
-.Personality-title {
-  color: rgb(55, 65, 83);
-  font-size: 15px;
-  float: left !important;
-  font-weight: 700;
-  margin: 0;
-  padding: 0;
-}
-
-.Personality-top {
-  margin: 0;
-  height: 80px;
-}
-
-#Result {
-  margin-top: -20px;
+.Personality-img {
+  display: grid;
+  grid-column: 1/2;
+  vertical-align: middle;
 }
